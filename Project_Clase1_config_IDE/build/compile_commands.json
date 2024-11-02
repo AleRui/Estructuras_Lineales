@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/build",
+  "command": "/usr/bin/g++ -g -std=c++23 -Wall -Wextra -pedantic -Werror -o CMakeFiles/Project_Clase1_config_IDE.dir/main.cpp.o -c /home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/main.cpp",
+  "file": "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/main.cpp",
+  "output": "CMakeFiles/Project_Clase1_config_IDE.dir/main.cpp.o"
+}
+]

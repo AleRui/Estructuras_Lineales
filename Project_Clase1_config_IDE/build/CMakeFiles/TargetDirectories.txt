@@ -1,0 +1,3 @@
+/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/build/CMakeFiles/Project_Clase1_config_IDE.dir
+/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/build/CMakeFiles/rebuild_cache.dir
