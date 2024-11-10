@@ -1,8 +1,8 @@
 [
 {
-  "directory": "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/build",
-  "command": "/usr/bin/g++ -g -std=c++23 -Wall -Wextra -pedantic -Werror -o CMakeFiles/Project_Clase1_config_IDE.dir/main.cpp.o -c /home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/main.cpp",
-  "file": "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/main.cpp",
+  "directory": "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase1_config_IDE/build",
+  "command": "/usr/bin/g++-14 -g -std=c++23 -Wall -Wextra -pedantic -Werror -fmodules-ts -fmodule-mapper=CMakeFiles/Project_Clase1_config_IDE.dir/main.cpp.o.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles/Project_Clase1_config_IDE.dir/main.cpp.o -c /home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase1_config_IDE/main.cpp",
+  "file": "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase1_config_IDE/main.cpp",
   "output": "CMakeFiles/Project_Clase1_config_IDE.dir/main.cpp.o"
 }
 ]

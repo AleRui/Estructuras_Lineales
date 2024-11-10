@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/build"
+			"value" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase1_config_IDE/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -139,11 +139,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "CXX compiler"
 				}
 			],
-			"type" : "FILEPATH",
-			"value" : "/usr/bin/g++"
+			"type" : "STRING",
+			"value" : "/usr/bin/g++-14"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -159,7 +159,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ar-13"
+			"value" : "/usr/bin/gcc-ar-14"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -175,7 +175,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ranlib-13"
+			"value" : "/usr/bin/gcc-ranlib-14"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -267,7 +267,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc"
+			"value" : "/usr/bin/gcc-14"
 		},
 		{
 			"name" : "CMAKE_DLLTOOL",
@@ -411,7 +411,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/build/CMakeFiles/pkgRedirects"
+			"value" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase1_config_IDE/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -471,7 +471,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE"
+			"value" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase1_config_IDE"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1083,7 +1083,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/build"
+			"value" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase1_config_IDE/build"
 		},
 		{
 			"name" : "Project_Clase1_config_IDE_IS_TOP_LEVEL",
@@ -1107,7 +1107,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE"
+			"value" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase1_config_IDE"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
@@ -1120,54 +1120,6 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "TRUE"
-		},
-		{
-			"name" : "acreed_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE/build"
-		},
-		{
-			"name" : "acreed_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "acreed_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/alejandro/Projects/Estructuras_Lineales/Project_Clase1_config_IDE"
-		},
-		{
-			"name" : "nlohmann_json_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for nlohmann_json."
-				}
-			],
-			"type" : "PATH",
-			"value" : "nlohmann_json_DIR-NOTFOUND"
 		}
 	],
 	"kind" : "cache",

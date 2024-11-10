@@ -1,3 +1,9 @@
 # ninja log v5
 1	2099	1729622098189875625	CMakeFiles/Project_Clase1_config_IDE.dir/main.cpp.o	e28d40a3b5d9d306
 2099	2208	1729622098299877754	debug/Project_Clase1_config_IDE	301c5f236f70085e
+2	126	1731267499743524703	CMakeFiles/Project_Clase1_config_IDE.dir/main.cpp.o.ddi	107967327367712c
+127	139	1731267499755524750	CMakeFiles/Project_Clase1_config_IDE.dir/CXX.dd	33868b52e0a719cd
+127	139	1731267499755524750	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase1_config_IDE/build/CMakeFiles/Project_Clase1_config_IDE.dir/CXXModules.json	33868b52e0a719cd
+127	139	1731267499755524750	CMakeFiles/Project_Clase1_config_IDE.dir/main.cpp.o.modmap	33868b52e0a719cd
+139	2382	1731267501996533503	CMakeFiles/Project_Clase1_config_IDE.dir/main.cpp.o	c30e341c090b0fdd
+2382	2483	1731267502098533902	debug/Project_Clase1_config_IDE	844f37b653dfb5e1
