@@ -1,5 +1,5 @@
 CMakeFiles/acreed.dir/main.cpp.o.ddi: \
- /home/alejandro/Projects/Estructuras_Lineales/Project_Clase2/main.cpp \
+ /home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase2/main.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/14/algorithm \
  /usr/include/c++/14/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
