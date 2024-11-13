@@ -1,0 +1,7 @@
+# ninja log v5
+1	336	1731267862560941890	CMakeFiles/acreed.dir/main.cpp.o.ddi	d917841f9412dcdd
+336	347	1731267862573941940	CMakeFiles/acreed.dir/CXX.dd	81d96964120ec783
+336	347	1731267862573941940	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase2/build/CMakeFiles/acreed.dir/CXXModules.json	81d96964120ec783
+336	347	1731267862573941940	CMakeFiles/acreed.dir/main.cpp.o.modmap	81d96964120ec783
+347	6294	1731267868514965147	CMakeFiles/acreed.dir/main.cpp.o	652ae8319e92b5a6
+6296	6438	1731267868664965733	debug/acreed	c13d43dfd0d4a8fb

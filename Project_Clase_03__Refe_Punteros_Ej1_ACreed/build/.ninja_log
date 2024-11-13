@@ -1,0 +1,13 @@
+# ninja log v5
+1	570	1731528151971574977	CMakeFiles/acreed.dir/main.cpp.o.ddi	dbac274401676801
+571	581	1731528151984575155	CMakeFiles/acreed.dir/CXX.dd	81d96964120ec783
+571	581	1731528151984575155	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_03__Refe_Punteros_Ej1_ACreed/build/CMakeFiles/acreed.dir/CXXModules.json	81d96964120ec783
+571	581	1731528151984575155	CMakeFiles/acreed.dir/main.cpp.o.modmap	81d96964120ec783
+581	6927	1731528158323662021	CMakeFiles/acreed.dir/main.cpp.o	b3b3871179b7f602
+6927	7088	1731528158489664296	debug/acreed	c13d43dfd0d4a8fb
+3	387	1731529696880298438	CMakeFiles/acreed.dir/main.cpp.o.ddi	dbac274401676801
+388	401	1731529696895298673	CMakeFiles/acreed.dir/CXX.dd	81d96964120ec783
+388	401	1731529696895298673	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_03__Refe_Punteros_Ej1_ACreed/build/CMakeFiles/acreed.dir/CXXModules.json	81d96964120ec783
+388	401	1731529696895298673	CMakeFiles/acreed.dir/main.cpp.o.modmap	81d96964120ec783
+402	6613	1731529703101395547	CMakeFiles/acreed.dir/main.cpp.o	b3b3871179b7f602
+6613	6765	1731529703258397997	debug/acreed	c13d43dfd0d4a8fb
