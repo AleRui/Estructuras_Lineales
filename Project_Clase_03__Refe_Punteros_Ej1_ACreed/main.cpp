@@ -12,6 +12,7 @@
 // .hpp header file fichero de cabecera estrictamente de C++, no funciona en C.
 // #include <json-develop/include/nlohmann/json.hpp>
 
+/*
 // class Target {
 //     std::string name;
 //     bool achieved;
@@ -38,7 +39,28 @@ auto same_name(Target t1, Target t2) -> bool // Predicado es que se devuelve ver
 {
     return t1.name == t2.name;
 }
+*/
+// void incremento(double v) // paso por valor: le pasa una copia del valor que se le pasa
 
+// void incremento(double& v) // paso por referencia: le pasa una copia del valor que se le pasa
+// { // void funcion no devuelve nada
+//     v += 1.2;
+// }
+
+auto main() -> int
+{
+    // auto d = double{7.8};
+    // auto& r = d; // introducimos una referncia al double d, es decir un alias para dicho objeto
+    // r += 1.2;
+    // std::println("d = {}, r = {}", d, r);
+    // incremento(d);
+    // std::println("d = {}", d);
+    auto i = int{1};
+    i += 2;
+    std::println("i = {}", i);
+}
+
+/*
 auto main() -> int
 {
 
@@ -99,24 +121,33 @@ auto main() -> int
     // iteramos los subgrupos del vector de targets de idéntico nombre, imprimiendo
     // el nombre del primer representante de cada subgrupo:
     // for (auto target_chunk : targets | std::views:chunk_by(same_name)) { // chunk_by agrupar por vista
+    // | es un pipe, una tubería
     for (auto target_chunk : targets | stdv::chunk_by(same_name)) { // chunk_by agrupar por vista
         auto nm = stdr::begin(target_chunk)->name; // ve a la primera casilla del trozo del vector que has visto y coge lo que es
         
         // Contador para sumar el número de elementos de cada nombre.
-        auto achvd = int{0};
-        for (Target t : target_chunk) {
-            if (t.achieved) {
-                ++achvd;
-            }
-        }
+        // auto achvd = int{0};
+        // for (Target t : target_chunk) {
+        //     if (t.achieved) {
+        //         ++achvd;
+        //     }
+        // }
+        auto achvd = stdr::count_if(target_chunk, &Target::achieved);
 
-        auto total = int{0};
-        for (Target t : target_chunk) {
-            ++total;
-        }
+        // Contador para sacar los totales por nombre
+        // auto total = int{0};
+        // for (Target t : target_chunk) {
+        //     ++total;
+        // }
+        auto total = stdr::distance(target_chunk);
 
-        std::println("tipo: {} --> {}/{}", nm, achvd, total);
+        // Popdemos usar un algoritmo de una biblioteca estandar para
+        // recorrer un bucle y si se cumple la condición que se vaya obteniendo el
+        // println align :> izq :< der :^center
+        // std::println("tipo: {} --> {}/{}", nm, achvd, total);
+        std::println("{:>15} --> {}/{}", nm, achvd, total);
     }
 
     return EXIT_SUCCESS;
 }
+*/
