@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_1- Unidades_1_2/build/CMakeFiles/spiderman.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_1- Unidades_1_2/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_1- Unidades_1_2/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_04__Refe_Punteros_02_Ej1_ACreed/build/CMakeFiles/acreed.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_04__Refe_Punteros_02_Ej1_ACreed/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_04__Refe_Punteros_02_Ej1_ACreed/build/CMakeFiles/rebuild_cache.dir

@@ -1,5 +1,6 @@
 // ficheros de cabecera estándar:
 #include <algorithm> // contiene algortimos de búsqueda, partición, ordenación, etc
+#include <iostream>  // Para imprimir con cout punteros por ejemplo
 #include <fstream>   // flujos i/o a ficheros
 #include <print>     // contiene las funciones std::print y std::println (incluye salto de línea)
 #include <ranges>    // funciones para trabajar con rangos, algo iteradod e princpio a fin,
@@ -47,6 +48,12 @@ auto same_name(Target t1, Target t2) -> bool // Predicado es que se devuelve ver
 //     v += 1.2;
 // }
 
+void imprimir_mensaje(std::string const& str) // & la referencia en este caso es lógico y necesario
+{                                             // la función no está mutando, solo lo lee
+    // str += "PEL";  // No lo permite        // añadimos const para pedir que le objeto no va a cambiar
+    std::println("{}", str);                  
+}
+
 auto main() -> int
 {
     // auto d = double{7.8};
@@ -55,9 +62,33 @@ auto main() -> int
     // std::println("d = {}, r = {}", d, r);
     // incremento(d);
     // std::println("d = {}", d);
-    auto i = int{1};
-    i += 2;
-    std::println("i = {}", i);
+
+    // auto i = int{1};
+    // auto const i = int{1}; // lo convierte en un objeto que no puede cambiar
+    // i += 2;
+    // std::println("i = {}", i);
+
+    // auto msg = std::string{"Hello world!"};
+    // auto const msg = std::string{"Hello world!"};
+    // imprimir_mensaje(msg);
+
+    // msg += " PEL"; // Esto fallaría si msg es constante
+    // imprimir_mensaje(msg);
+
+    auto n = int{0}; // ocupa 4 bytes
+    // Buscar dirección de memoria vistual de esta variable
+    // y quiero guardar esa dirección en memoria en otra variable
+    int* p1 = &n; // & es un operador unario para obtener la dirección del entero "n"
+                 // int* p es un puntero, dirección en memoria de un objeto
+    auto d = double {9.9}; // ocupa 8 bytes
+    double* p2 = &d;             // Un puntero en memoria ocupa
+    // std::println no puede imprimir puntero como tales.
+    std::cout << p1 << '\n';
+    std::cout << p2 << '\n';
+
+    // cuanto ocupa en memoria p1 y p2
+    // todos ocupan 8 bytes porque almacenan direcciones de memoria
+    std::println("{} bytes, {} bytes", sizeof(p1), sizeof(p2));
 }
 
 /*

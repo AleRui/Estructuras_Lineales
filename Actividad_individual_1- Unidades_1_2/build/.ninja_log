@@ -1,0 +1,31 @@
+# ninja log v5
+4769	4873	1732316660557257535	debug/spiderman	283310e5a544072c
+369	4769	1732316660452254576	CMakeFiles/spiderman.dir/main.cpp.o	242423e9ff055484
+386	397	1732317466137406147	CMakeFiles/spiderman.dir/main.cpp.o.modmap	e67fa6606c570fef
+386	397	1732317466137406147	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_1- Unidades_1_2/build/CMakeFiles/spiderman.dir/CXXModules.json	e67fa6606c570fef
+386	397	1732317466137406147	CMakeFiles/spiderman.dir/CXX.dd	e67fa6606c570fef
+3	386	1732317466124405949	CMakeFiles/spiderman.dir/main.cpp.o.ddi	6f3d7ec8861d06f4
+3	364	1732317488023737065	CMakeFiles/spiderman.dir/main.cpp.o.ddi	6f3d7ec8861d06f4
+364	375	1732317488036737261	CMakeFiles/spiderman.dir/CXX.dd	e67fa6606c570fef
+364	375	1732317488036737261	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_1- Unidades_1_2/build/CMakeFiles/spiderman.dir/CXXModules.json	e67fa6606c570fef
+364	375	1732317488036737261	CMakeFiles/spiderman.dir/main.cpp.o.modmap	e67fa6606c570fef
+2	355	1732317509943065418	CMakeFiles/spiderman.dir/main.cpp.o.ddi	6f3d7ec8861d06f4
+355	366	1732317509956065611	CMakeFiles/spiderman.dir/CXX.dd	e67fa6606c570fef
+355	366	1732317509956065611	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_1- Unidades_1_2/build/CMakeFiles/spiderman.dir/CXXModules.json	e67fa6606c570fef
+355	366	1732317509956065611	CMakeFiles/spiderman.dir/main.cpp.o.modmap	e67fa6606c570fef
+2	357	1732317524991289146	CMakeFiles/spiderman.dir/main.cpp.o.ddi	6f3d7ec8861d06f4
+357	369	1732317525005289353	CMakeFiles/spiderman.dir/CXX.dd	e67fa6606c570fef
+357	369	1732317525005289353	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_1- Unidades_1_2/build/CMakeFiles/spiderman.dir/CXXModules.json	e67fa6606c570fef
+357	369	1732317525005289353	CMakeFiles/spiderman.dir/main.cpp.o.modmap	e67fa6606c570fef
+2	358	1732317603720438710	CMakeFiles/spiderman.dir/main.cpp.o.ddi	6f3d7ec8861d06f4
+358	373	1732317603737438955	CMakeFiles/spiderman.dir/CXX.dd	e67fa6606c570fef
+358	373	1732317603737438955	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_1- Unidades_1_2/build/CMakeFiles/spiderman.dir/CXXModules.json	e67fa6606c570fef
+358	373	1732317603737438955	CMakeFiles/spiderman.dir/main.cpp.o.modmap	e67fa6606c570fef
+373	6121	1732317609479521508	CMakeFiles/spiderman.dir/main.cpp.o	242423e9ff055484
+6121	6256	1732317609620523533	debug/spiderman	283310e5a544072c
+2	369	1732317690140664534	CMakeFiles/spiderman.dir/main.cpp.o.ddi	6f3d7ec8861d06f4
+370	381	1732317690154664730	CMakeFiles/spiderman.dir/CXX.dd	e67fa6606c570fef
+370	381	1732317690154664730	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_1- Unidades_1_2/build/CMakeFiles/spiderman.dir/CXXModules.json	e67fa6606c570fef
+370	381	1732317690154664730	CMakeFiles/spiderman.dir/main.cpp.o.modmap	e67fa6606c570fef
+382	6296	1732317696062747303	CMakeFiles/spiderman.dir/main.cpp.o	242423e9ff055484
+6296	6442	1732317696213749411	debug/spiderman	283310e5a544072c

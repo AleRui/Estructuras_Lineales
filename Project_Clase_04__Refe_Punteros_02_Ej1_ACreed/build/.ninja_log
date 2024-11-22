@@ -1,0 +1,7 @@
+# ninja log v5
+2	409	1731875027502431586	CMakeFiles/acreed.dir/main.cpp.o.ddi	fb831a60be7fdf11
+409	421	1731875027516431850	CMakeFiles/acreed.dir/CXX.dd	81d96964120ec783
+409	421	1731875027516431850	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_04__Refe_Punteros_02_Ej1_ACreed/build/CMakeFiles/acreed.dir/CXXModules.json	81d96964120ec783
+409	421	1731875027516431850	CMakeFiles/acreed.dir/main.cpp.o.modmap	81d96964120ec783
+421	6692	1731875033781549961	CMakeFiles/acreed.dir/main.cpp.o	ceb84f647399c500
+6692	6841	1731875033935552863	debug/acreed	c13d43dfd0d4a8fb
