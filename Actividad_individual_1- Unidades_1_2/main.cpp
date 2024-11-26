@@ -8,6 +8,10 @@
 #include <string>    // cadena de caracteres estándar
 #include <vector>    // contenedor secuencial (contiguos en memoria vistual) recomendado por defecto en C++
 
+#include <typeinfo>  // Library tipo de variable.
+// #include <string_view>
+// #include <functional>
+
 // biblioteca no-estádar:
 #include <nlohmann/json.hpp>
 
@@ -15,8 +19,15 @@ struct Mision {
     std::string district;
     std::string type;
 };
+
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Mision, district, type) 
 
+auto es_mismo_distrito(Mision distrito_a, Mision distrito_b) -> bool
+{
+    return distrito_a.district == distrito_b.district;
+}
+
+// auto es_igual = std::ranges::equal_to{};
 
 // Nota función main:
 // Si no se especifica ningún valor devuelto en main,
@@ -37,10 +48,11 @@ auto main() -> int
      * Funciones de tiempo y memoria, como std::time(), std::malloc() y std::free().
      */
 
+    // 0. Alias
+    namespace stdr = std::ranges;
+    namespace stdv = std::views;
+
     // 1. Leer libreria JSON
-    //  ifstream ( input file stream), clase orientada para la lectura
-    // const auto nombre_archivo = "peter_parker.jsonl";
-    // const auto ruta_archivo_jsonl = "../../" + nombre_archivo;
     auto ruta_archivo_jsonl = "../../peter_parker.jsonl";
     // TODO check if is a path.
     auto flujo_de_archivo_de_entrada = std::ifstream{ruta_archivo_jsonl, std::ios::binary};
@@ -65,12 +77,32 @@ auto main() -> int
     //   2.F Cerrar flujo de datos (ifs.close()).
     flujo_de_archivo_de_entrada.close(); // cerramos el flujo al fichero
 
-    
-    for (Mision mision : objetivos_spiderman) {
-        std::println("zona: {}, tipo: {}", mision.district, mision.type);
-    }
-    
     // 3. Ordenar el vector (stdr::sort, namespace stdr = std::ranges).
-    // 4. Agrupar elementos del vector en vistas (std::views)
+    stdr::sort(objetivos_spiderman, {}, &Mision::district);
+
+    for (auto objetivos_spiderman_chunk : objetivos_spiderman | stdv::chunk_by(es_mismo_distrito)) {
+        auto nombres_vista_distrito = stdr::begin(objetivos_spiderman_chunk)->district;
+
+        std::println("{}:", nombres_vista_distrito);
+
+        // Ordenamos en un vector los enemigos.
+        std::vector<std::string> enemigos_spiderman;
+        for (Mision vista_mision : objetivos_spiderman_chunk) {
+            enemigos_spiderman.push_back(vista_mision.type);
+        }
+
+        stdr::sort(enemigos_spiderman, {});
+
+        std::unordered_map<std::string, int> conteo; // Unordered_map contiene elementos solo en forma de pares (clave-valor).
+        
+        for (const auto& nombre : enemigos_spiderman) {
+            conteo[nombre]++;
+        }
+
+        for (const auto& par_enemigo_repeticion : conteo) {
+            std::println("* {} -> {}", par_enemigo_repeticion.first, par_enemigo_repeticion.second);
+        }
+    }
+
     return EXIT_SUCCESS;
 }
