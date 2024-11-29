@@ -27,7 +27,8 @@ auto es_mismo_distrito(Mision distrito_a, Mision distrito_b) -> bool
 }
 
 // Corrutina | Generador
-auto get_from_jsonl(std::string file) -> std::generator<Mision>
+template<typename T> 
+auto get_from_jsonl(std::string file) -> std::generator<T>
 {
     auto vector_mision = std::vector<Mision>{};
 
@@ -40,7 +41,7 @@ auto get_from_jsonl(std::string file) -> std::generator<Mision>
 
     auto ln = std::string{};
     while (std::getline(ifs, ln)) {
-        auto objetivo_spiderman = nlohmann::json::parse(ln).get<Mision>();
+        auto objetivo_spiderman = nlohmann::json::parse(ln).get<T>();
         co_yield objetivo_spiderman;
     }
 }
@@ -53,7 +54,7 @@ auto main() -> int
 
     auto objetivos_spiderman = std::vector<Mision>{};
 
-    for (Mision mision_spiderman : get_from_jsonl("../../peter_parker.jsonl")){
+    for (Mision mision_spiderman : get_from_jsonl<Mision>("../../peter_parker.jsonl")){
         objetivos_spiderman.push_back(mision_spiderman);
     }
 

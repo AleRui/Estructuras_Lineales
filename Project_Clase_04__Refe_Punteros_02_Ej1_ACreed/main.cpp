@@ -106,7 +106,16 @@ auto main() -> int
 
 // Vamos a devolver un generador de target
 // Esto ya es un corrtuina.
-auto get_from_jsonl(std::string file) -> std::generator<Target>
+// auto get_from_jsonl(std::string file) -> std::generator<Target>
+
+/////////////////////////////////////////////////////////////////////
+// Vamos a hacer una función generica que no depende de una clase
+// Ponemos T como tipo un vector generico
+
+// Todo pasa en compilación, no en tiempo de ejecución.
+// Abstracción de coste nulo.
+template<typename T> // Familia uniparamétrica de funciones.
+auto get_from_jsonl(std::string file) -> std::generator<T>
 {
     auto res = std::vector<Target>{}; // Inicializo el resultado de la función.
 
@@ -119,9 +128,10 @@ auto get_from_jsonl(std::string file) -> std::generator<Target>
     }
 
     auto ln = std::string{};
+
     while (std::getline(ifs, ln)) {
         std::println("{}", ln);
-        auto trgt = nlohmann::json::parse(ln).get<Target>();
+        auto trgt = nlohmann::json::parse(ln).get<T>();
         // res.push_back(trgt);
         co_yield trgt; // Corrutina de tipo generador
         /*
@@ -137,24 +147,36 @@ auto get_from_jsonl(std::string file) -> std::generator<Target>
     // return res;
 }
 
+struct Rectangle {
+    double width;
+    double height;
+};
+
 
 auto main() -> int
 {
+    // alias para espacios de nombres:
+    namespace stdr = std::ranges; // creo un alias para este espacio de nombres.
+    namespace stdv = std::views;
+
+    auto r1 = Rectangle(2.6, 1.23);
+    auto r2 = Rectangle(7.87, 100.2);
+
+    std::println("base: {}, altura {}", r1.width, r1.height);
+    std::println("base: {}, altura {}", r2.width, r2.height);
+
 
     // auto t = Target{"soldier", true};
     // auto t = Target{.name = "soldier", .achieved = true}; // .name y .achieved son inicializadores
     // std::println("nombre: {}, completado; {}", t.name, t.achieved);
-
-    // alias para espacios de nombres:
-    namespace stdr = std::ranges; // creo un alias para este espacio de nombres.
-    namespace stdv = std::views;
 
     // auto targets = get_from_jsonl("../../military_camp.jsonl");
 
     auto targets = std::vector<Target>{};
 
     // Generador de Targets. Con corrutina.
-    for (Target trgt : get_from_jsonl("../../military_camp.jsonl")){
+    // for (Target trgt : get_from_jsonl("../../military_camp.jsonl")){
+    for (Target trgt : get_from_jsonl<Target>("../../military_camp.jsonl")){
         targets.push_back(trgt);
     }
 

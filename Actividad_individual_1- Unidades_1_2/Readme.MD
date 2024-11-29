@@ -17,7 +17,7 @@
 
 ---
 
-## Mapa conceptual Unidades 1 y 2
+## Mapa conceptual Unidades 1 y 2 (Programación Genérica)
 
 | Liberia | Uso | Detalles |
 | --- | --- | --- |
@@ -37,6 +37,7 @@
 | | std::unordered_map\<std::string, int> contador; | Unordered_map contiene elementos solo en forma de pares (clave-valor). |
 | | std::generator<Mision> | Generador. |
 | | co_yield | Corrutina va devolviendo elementos tipo target a demanda, y se supende cuando hace falta. |
+| | template<typename T> | Plantilla que convierte en familia uniparamétrica de funciones, clases. |
 
 ---
 
