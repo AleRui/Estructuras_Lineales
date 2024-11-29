@@ -7,6 +7,7 @@
                      // contiene vistas, visita por conjuntos
 #include <string>    // cadena de caracteres estándar
 #include <vector>    // contenedor secuencial (contiguos en memoria vistual) recomendado por defecto en C++
+#include <generator> // secuencia de elementos a demanda de una corrutina
 
 // biblioteca no-estádar:
 #include <nlohmann/json.hpp>
@@ -101,7 +102,11 @@ auto main() -> int
 
 // cojo un nombre un path
 // devuelvo un vector de tagets
-auto get_from_jsonl(std::string file) -> std::vector<Target>
+// auto get_from_jsonl(std::string file) -> std::vector<Target>
+
+// Vamos a devolver un generador de target
+// Esto ya es un corrtuina.
+auto get_from_jsonl(std::string file) -> std::generator<Target>
 {
     auto res = std::vector<Target>{}; // Inicializo el resultado de la función.
 
@@ -117,14 +122,19 @@ auto get_from_jsonl(std::string file) -> std::vector<Target>
     while (std::getline(ifs, ln)) {
         std::println("{}", ln);
         auto trgt = nlohmann::json::parse(ln).get<Target>();
-        res.push_back(trgt);
+        // res.push_back(trgt);
+        co_yield trgt; // Corrutina de tipo generador
+        /*
+         * Va devolviendo elementos tipo target a demanda, y se
+         * supende cuando hace falta.
+         */
     }
 
     // std::println("\n");
 
     // ifs.close(); // No es necesaria la linea, porque el destructor ya la cierra
 
-    return res;
+    // return res;
 }
 
 
@@ -139,7 +149,14 @@ auto main() -> int
     namespace stdr = std::ranges; // creo un alias para este espacio de nombres.
     namespace stdv = std::views;
 
-    auto targets = get_from_jsonl("../../military_camp.jsonl");
+    // auto targets = get_from_jsonl("../../military_camp.jsonl");
+
+    auto targets = std::vector<Target>{};
+
+    // Generador de Targets. Con corrutina.
+    for (Target trgt : get_from_jsonl("../../military_camp.jsonl")){
+        targets.push_back(trgt);
+    }
 
     // Necesitamos un contenedor capaz de crecer en un tiempo de ejecución.
     std::println("{}", targets.size()); // imprime 0 porque el vector esta inicializado pero vacio.

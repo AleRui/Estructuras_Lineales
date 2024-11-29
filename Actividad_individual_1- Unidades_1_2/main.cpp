@@ -9,6 +9,7 @@
 #include <vector>    // contenedor secuencial (contiguos en memoria vistual) recomendado por defecto en C++
 
 #include <typeinfo>  // Library tipo de variable.
+#include <generator> // secuencia de elementos a demanda de una corrutina
 
 // biblioteca no-estádar:
 #include <nlohmann/json.hpp>
@@ -25,7 +26,8 @@ auto es_mismo_distrito(Mision distrito_a, Mision distrito_b) -> bool
     return distrito_a.district == distrito_b.district;
 }
 
-auto get_from_jsonl(std::string file) -> std::vector<Mision>
+// Corrutina | Generador
+auto get_from_jsonl(std::string file) -> std::generator<Mision>
 {
     auto vector_mision = std::vector<Mision>{};
 
@@ -39,10 +41,8 @@ auto get_from_jsonl(std::string file) -> std::vector<Mision>
     auto ln = std::string{};
     while (std::getline(ifs, ln)) {
         auto objetivo_spiderman = nlohmann::json::parse(ln).get<Mision>();
-        vector_mision.push_back(objetivo_spiderman);
+        co_yield objetivo_spiderman;
     }
-
-    return vector_mision;
 }
 
 
@@ -51,7 +51,13 @@ auto main() -> int
     namespace stdr = std::ranges;
     namespace stdv = std::views;
 
-    auto objetivos_spiderman = get_from_jsonl("../../peter_parker.jsonl");
+    auto objetivos_spiderman = std::vector<Mision>{};
+
+    for (Mision mision_spiderman : get_from_jsonl("../../peter_parker.jsonl")){
+        objetivos_spiderman.push_back(mision_spiderman);
+    }
+
+    // auto objetivos_spiderman = get_from_jsonl("../../peter_parker.jsonl");
 
     stdr::sort(objetivos_spiderman, {}, &Mision::district);
 

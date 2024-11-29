@@ -13,6 +13,7 @@
 - #include \<string>    -> cadena de caracteres estándar
 - #include \<vector>     -> contenedor secuencial (contiguos en memoria vistual) recomendado por defecto en C++
 - #include \<typeinfo>  // Library tipo de variable.
+- #include \<generator>  // Library Generador.
 
 ---
 
@@ -34,6 +35,8 @@
 | #include \<ranges> | stdr::distance(target_chunk); | Contador de elementos de un vector. |
 | #include \<ranges> | stdr::count_if(vector_vista_chunk, &ClassName::parametro); | Contador de elementos de una vista. |
 | | std::unordered_map\<std::string, int> contador; | Unordered_map contiene elementos solo en forma de pares (clave-valor). |
+| | std::generator<Mision> | Generador. |
+| | co_yield | Corrutina va devolviendo elementos tipo target a demanda, y se supende cuando hace falta. |
 
 ---
 
