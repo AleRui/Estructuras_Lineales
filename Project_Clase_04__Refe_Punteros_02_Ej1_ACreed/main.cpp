@@ -146,7 +146,7 @@ auto get_from_jsonl(std::string file) -> std::generator<T>
 
     // return res;
 }
-
+template 
 struct Rectangle {
     double width;
     double height;

@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_07_memorias/build",
+  "command": "/usr/bin/g++-14 -g -std=c++23 -Wall -Wextra -pedantic -Werror -fmodules-ts -fmodule-mapper=CMakeFiles/beatles.dir/main.cpp.o.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles/beatles.dir/main.cpp.o -c /home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_07_memorias/main.cpp",
+  "file": "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_07_memorias/main.cpp",
+  "output": "CMakeFiles/beatles.dir/main.cpp.o"
+}
+]

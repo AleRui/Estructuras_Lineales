@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_07_memorias/build/CMakeFiles/beatles.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_07_memorias/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_07_memorias/build/CMakeFiles/rebuild_cache.dir

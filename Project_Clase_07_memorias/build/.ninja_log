@@ -1,0 +1,7 @@
+# ninja log v5
+1	209	1733946470340251810	CMakeFiles/beatles.dir/main.cpp.o.ddi	d71aba64fbea2f47
+209	225	1733946470358252030	CMakeFiles/beatles.dir/CXX.dd	c1681e7cf57bcdb
+209	225	1733946470358252030	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_07_memorias/build/CMakeFiles/beatles.dir/CXXModules.json	c1681e7cf57bcdb
+2946	3057	1733946473192286753	debug/beatles	96f91f9b85b7bf93
+209	225	1733946470358252030	CMakeFiles/beatles.dir/main.cpp.o.modmap	c1681e7cf57bcdb
+225	2946	1733946473078285356	CMakeFiles/beatles.dir/main.cpp.o	50a114060168bb69

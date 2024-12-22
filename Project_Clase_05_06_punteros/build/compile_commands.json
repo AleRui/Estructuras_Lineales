@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_05_punteros/build",
+  "command": "/usr/bin/g++-14 -g -std=c++23 -Wall -Wextra -pedantic -Werror -fmodules-ts -fmodule-mapper=CMakeFiles/acreed.dir/main.cpp.o.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles/acreed.dir/main.cpp.o -c /home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_05_punteros/main.cpp",
+  "file": "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_05_punteros/main.cpp",
+  "output": "CMakeFiles/acreed.dir/main.cpp.o"
+}
+]

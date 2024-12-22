@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_05_punteros/build/CMakeFiles/acreed.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_05_punteros/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_05_punteros/build/CMakeFiles/rebuild_cache.dir

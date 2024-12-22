@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/build/CMakeFiles/max.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/build/CMakeFiles/rebuild_cache.dir

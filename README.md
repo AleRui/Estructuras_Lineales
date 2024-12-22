@@ -2,6 +2,7 @@
 
 sudo apt install -y build-essential
 
+## Gcc es el compilador.
 sudo apt install -y gcc-14 g++-14
 
 sudo apt install -y cmake
@@ -19,7 +20,7 @@ sudo apt install -y ninja-build
 "cmake.generator": "Ninja"
 
 ## VSCode C/C++
-- Incluse path `${workspaceFolder}`
+- Include path `${workspaceFolder}`
 
 ## Library nlohmann-json3
 sudo apt install -y nlohmann-json3-dev
