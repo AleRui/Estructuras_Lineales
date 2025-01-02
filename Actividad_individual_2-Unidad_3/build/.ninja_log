@@ -1,0 +1,17 @@
+# ninja log v5
+7031	7180	1735852780722379375	debug/amazon	b8b703cd5016df13
+536	7031	1735852780566377268	CMakeFiles/amazon.dir/main.cpp.o	49f430c7b9cfa913
+524	536	1735852774079289680	CMakeFiles/amazon.dir/main.cpp.o.modmap	c91c297932fb625e
+524	536	1735852774079289680	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_2-Unidad_3/build/CMakeFiles/amazon.dir/CXXModules.json	c91c297932fb625e
+524	536	1735852774079289680	CMakeFiles/amazon.dir/CXX.dd	c91c297932fb625e
+4	524	1735852774064289478	CMakeFiles/amazon.dir/main.cpp.o.ddi	a0629283f9f68b79
+4	536	1735853403401044856	CMakeFiles/amazon.dir/main.cpp.o.ddi	a0629283f9f68b79
+536	547	1735853403416045089	CMakeFiles/amazon.dir/CXX.dd	c91c297932fb625e
+536	547	1735853403416045089	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_2-Unidad_3/build/CMakeFiles/amazon.dir/CXXModules.json	c91c297932fb625e
+536	547	1735853403416045089	CMakeFiles/amazon.dir/main.cpp.o.modmap	c91c297932fb625e
+3	512	1735853436024550884	CMakeFiles/amazon.dir/main.cpp.o.ddi	a0629283f9f68b79
+513	523	1735853436037551085	CMakeFiles/amazon.dir/CXX.dd	c91c297932fb625e
+513	523	1735853436037551085	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_2-Unidad_3/build/CMakeFiles/amazon.dir/CXXModules.json	c91c297932fb625e
+513	523	1735853436037551085	CMakeFiles/amazon.dir/main.cpp.o.modmap	c91c297932fb625e
+524	7136	1735853442641653169	CMakeFiles/amazon.dir/main.cpp.o	49f430c7b9cfa913
+7136	7316	1735853442820655935	debug/amazon	b8b703cd5016df13

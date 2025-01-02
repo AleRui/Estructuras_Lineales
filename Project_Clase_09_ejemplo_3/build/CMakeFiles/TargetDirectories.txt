@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_09_ejemplo_3/build/CMakeFiles/tokenization.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_09_ejemplo_3/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_09_ejemplo_3/build/CMakeFiles/rebuild_cache.dir

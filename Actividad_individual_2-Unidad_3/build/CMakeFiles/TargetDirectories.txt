@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_2-Unidad_3/build/CMakeFiles/amazon.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_2-Unidad_3/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_2-Unidad_3/build/CMakeFiles/rebuild_cache.dir

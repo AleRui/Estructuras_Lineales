@@ -1,0 +1,7 @@
+# ninja log v5
+2	275	1735843456391328347	CMakeFiles/tokenization.dir/main.cpp.o.ddi	368a1011d6427674
+275	288	1735843456404328560	CMakeFiles/tokenization.dir/CXX.dd	2e3fe4fb2d481488
+275	288	1735843456404328560	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_09_ejemplo_3/build/CMakeFiles/tokenization.dir/CXXModules.json	2e3fe4fb2d481488
+275	288	1735843456404328560	CMakeFiles/tokenization.dir/main.cpp.o.modmap	2e3fe4fb2d481488
+288	3660	1735843459774383746	CMakeFiles/tokenization.dir/main.cpp.o	fef640820699296e
+3660	3767	1735843459884385547	debug/tokenization	ce700e77bfb92f40
