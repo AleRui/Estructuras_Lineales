@@ -104667,19 +104667,44 @@ auto file_to_string(std::string filename) -> std::string
 
 auto main() -> int
 {
-   auto text = file_to_string("../../ulysses_joyce_4300-0.txt");
+   namespace stdr = std::ranges;
+   namespace stdv = std::views;
 
-   auto tokens = std::vector<std::string>{};
-   for (std::string tkn : boost::tokenizer{text}) {
-      tokens.push_back(tkn);
-   }
+
+   auto text = file_to_string("../../ulysses_joyce_4300-0.txt");
+# 49 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_08_ejemplo_3/main.cpp"
+   stdr::transform(text, text.begin(), [] (unsigned char c) { return std::tolower(c); });
+# 61 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_08_ejemplo_3/main.cpp"
+   auto tokens = stdr::to<std::vector<std::string>>(boost::tokenizer{text});
 
    std::println("{}", tokens.size());
-   std::println("{}", tokens.at(0));
+   std::println("{}", tokens.at(1));
+
+
+   stdr::sort(tokens);
+
+
+   auto freq_same_token = std::map<int, std::vector<std::string>>{};
+
+
+
+   for (
+      auto same_token = [] (std::string const& t1, std::string const& t2) { return t1 == t2; };
+      auto token_chunk : tokens | stdv::chunk_by( same_token )
+   ){
+
+
+      auto const freq = stdr::distance(token_chunk);
+      auto const tkn = *stdr::begin(token_chunk);
+
+
+
+      freq_same_token[freq].push_back(tkn);
+   }
 
    return 
-# 46 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_08_ejemplo_3/main.cpp" 3 4
+# 88 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_08_ejemplo_3/main.cpp" 3 4
          0
-# 46 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_08_ejemplo_3/main.cpp"
+# 88 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_08_ejemplo_3/main.cpp"
                      ;
 }

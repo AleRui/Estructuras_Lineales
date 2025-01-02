@@ -13,6 +13,10 @@
 #include <string>    // trabajar con string
 #include <vector>    // contenedor secuencial de elementos contiguos. Amigo memoria cache.
 
+/**
+ * @uthor: Alejandro Ruiz
+ */
+
 auto main() -> int
 {
     // std::vector<uint32_t> vector_enteros_uint_fast32_t = {}; // unsigned integer 32-bit type
@@ -67,15 +71,15 @@ auto main() -> int
     // Establecer funcion landa para hayar el máximo.
     auto capturar_maximo_valor = [] (auto chunk) -> uint32_t // & Capturamos variable que vive fuera del ambito TODO Es necesario?
     {
-
         auto result = std::max_element(chunk.begin(), chunk.end());
-        // uint32_t max_value = chunk[0];
-        return result;
+        return *result;
     }; // Las funciones Landa deben de estar cerradas.
 
     auto vector_max_valores_de_cada_trozo = std::vector<std::future<uint32_t>>{};
 
     std::println("Tamaño vector_max_valores_de_cada_trozo: {}", vector_max_valores_de_cada_trozo.size());
+
+    std::println("- - - - - - - -");
 
     auto primer_trozo_temporal = vector_enteros_uint_fast32_t.begin(); //Es un iterador
     // std::println("Cominezo primer_trozo_temporal: {}", primer_trozo_temporal);
@@ -84,7 +88,7 @@ auto main() -> int
 
     // Hilos
 
-    for (auto i = 0u; i < numero_hilos_hardware - 1; i++) // Debemos convertir el contador en unsigned (sin signo).
+    for (auto i = 0u; i < numero_hilos_hardware - 1; i++) // Debemos convertir el contador i en unsigned (sin signo).
     {
         vector_max_valores_de_cada_trozo.push_back(std::async(std::launch::async
                                                                 , capturar_maximo_valor
@@ -95,15 +99,29 @@ auto main() -> int
         primer_trozo_temporal = ultimo_trozo_temporal;
         ultimo_trozo_temporal += max_tamanio_trozo;
     }
-
     // // hilo que se encarga del main
-    // capturar_maximo_valor(std::ranges::subranges{primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
+    capturar_maximo_valor(std::ranges::subrange{primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
 
+    // Vector final con el máximo de cada hilo
+    auto vector_max_valores_final = std::vector<uint32_t>{};
     for (std::future<uint32_t>& future : vector_max_valores_de_cada_trozo) {
         uint32_t capturado = future.get();
         std::println("TCapturado: {}", capturado);
+        vector_max_valores_final.push_back(capturado);
     }
-    
+
+    std::println("- - - - - - - -");
+
+    for (uint32_t valor_final : vector_max_valores_final)
+    {
+        std::println("Valor final: {}", valor_final);
+    }
+
+    std::println("- - - - - - - -");
+
+    auto maximo_valor = std::max_element(vector_max_valores_final.begin(), vector_max_valores_final.end());
+
+    std::println("Máximo valor final: {}", *maximo_valor);
 
     return EXIT_SUCCESS;
 }

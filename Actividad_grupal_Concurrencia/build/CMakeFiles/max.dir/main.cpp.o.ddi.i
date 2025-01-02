@@ -140199,7 +140199,11 @@ namespace __detail
 
 
 
-# 16 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp"
+
+
+
+
+# 20 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp"
 auto main() -> int
 {
 
@@ -140254,15 +140258,15 @@ auto main() -> int
 
     auto capturar_maximo_valor = [] (auto chunk) -> uint32_t
     {
-
-        auto iterador = std::max_element(chunk.begin(), chunk.end());
-
-        return iterador;
+        auto result = std::max_element(chunk.begin(), chunk.end());
+        return *result;
     };
 
     auto vector_max_valores_de_cada_trozo = std::vector<std::future<uint32_t>>{};
 
     std::println("Tamaño vector_max_valores_de_cada_trozo: {}", vector_max_valores_de_cada_trozo.size());
+
+    std::println("- - - - - - - -");
 
     auto primer_trozo_temporal = vector_enteros_uint_fast32_t.begin();
 
@@ -140283,18 +140287,32 @@ auto main() -> int
         ultimo_trozo_temporal += max_tamanio_trozo;
     }
 
+    capturar_maximo_valor(std::ranges::subrange{primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
 
 
-
+    auto vector_max_valores_final = std::vector<uint32_t>{};
     for (std::future<uint32_t>& future : vector_max_valores_de_cada_trozo) {
-        auto capturado = future.get();
+        uint32_t capturado = future.get();
         std::println("TCapturado: {}", capturado);
+        vector_max_valores_final.push_back(capturado);
     }
 
+    std::println("- - - - - - - -");
+
+    for (uint32_t valor_final : vector_max_valores_final)
+    {
+        std::println("Valor final: {}", valor_final);
+    }
+
+    std::println("- - - - - - - -");
+
+    auto maximo_valor = std::max_element(vector_max_valores_final.begin(), vector_max_valores_final.end());
+
+    std::println("Máximo valor final: {}", *maximo_valor);
 
     return 
-# 108 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp" 3 4
+# 126 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp" 3 4
           0
-# 108 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp"
+# 126 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp"
                       ;
 }

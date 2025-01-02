@@ -76,7 +76,9 @@
         "print": "cpp",
         "text_encoding": "cpp",
         "coroutine": "cpp",
-        "generator": "cpp"
+        "generator": "cpp",
+        "source_location": "cpp",
+        "cinttypes": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/g++-14"
 }
