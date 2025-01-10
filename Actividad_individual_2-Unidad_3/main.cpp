@@ -15,29 +15,13 @@
 #include <nlohmann/json.hpp>
 #include <boost/tokenizer.hpp> // Biblioteca externa boost
 
-// Example object.
-// {
-//     "overall": 4.0,
-//     "verified": false,
-//     "reviewTime": "10 20, 2010",
-//     "reviewerID": "A38NELQT98S4H8",
-//     "asin": "0321719816",
-//     "style": {
-//         "Format:": " DVD-ROM"
-//     },
-//     "reviewerName": "WB Halper",
-//     "reviewText": "I've been using Dreamweaver (and it's predecessor Macromedia's UltraDev) for many years.  For someone who is an experienced web designer, this course is a high-level review of the CS5 version of Dreamweaver, but it doesn't go into a great enough level of detail to find it very useful.\n\nOn the other hand, this is a great tool for someone who is a relative novice at web design.  It starts off with a basic overview of HTML and continues through the concepts necessary to build a modern web site.  Someone who goes through this course should exit with enough knowledge to create something that does what you want it do do...within reason.  Don't expect to go off and build an entire e-commerce system with only this class under your belt.\n\nIt's important to note that there's a long gap from site design to actual implementation.  This course teaches you how to implement a design.  The user interface and overall user experience is a different subject that isn't covered here...it's possible to do a great implementation of an absolutely abysmal design.  I speak from experience.  :)\n\nAs I said above, if you're a novice, a relative newcomer or just an experienced web designer who wants a refresher course, this is a good way to do it.",
-//     "summary": "A solid overview of Dreamweaver CS5",
-//     "unixReviewTime": 1287532800
-// }
-
 struct Producto_AMZ
 {
-    std::string asin; // Van a ser la keys.
-    std::string reviewText; // VDebe ser tokenizado.
+    std::string asin;       // Van a ser la keys.
+    std::string reviewText; // Debe ser tokenizado.
 };
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Producto_AMZ, asin)
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Producto_AMZ, asin, reviewText)
 
 // Corrutina | Generador
 template <typename T>
@@ -59,64 +43,92 @@ auto get_from_jsonl(std::filesystem::path pth) -> std::generator<T>
     auto ln = std::string{};
     while (std::getline(ifs, ln))
     {
-        // parseamos la línea y retornamos un valor de tipo T, suspendiendomomentáneamente la
+        // parseamos la línea y retornamos un valor de tipo T, suspendiendo momentáneamente la
         // ejecución de la corrutina:
-        co_yield nlohmann::json::parse(ln).get<T>();
+        // co_yield nlohmann::json::parse(ln).get<T>();
+        auto const ln_object_nlohmann_parsed = nlohmann::json::parse(ln); // ln es un std::string conteniendo una línea JSON del fichero
+        auto review = std::string{};
+        try
+        {
+            review = ln_object_nlohmann_parsed.at("reviewText");
+            if (review.size())
+            {
+                co_yield ln_object_nlohmann_parsed.get<T>();
+            }
+        }
+        catch (nlohmann::json::out_of_range const &e)
+        {
+            // si la clave "reviewText" no existiera, ignoramos la línea JSON (por ejemplo continuando un bucle for/while)
+        }
     }
 } // el flujo al fichero es cerrado automáticamente por el destructor de std::ifstream
+
+// --------------------------------------------------------------------------------------
 
 auto main() -> int
 {
     namespace stdr = std::ranges;
     namespace stdv = std::views;
 
-    auto vector_tokens_ains_productos_AMZ = std::vector<std::string>{};
-    std::println("Tamaño vector de productos inicializado: {}", vector_tokens_ains_productos_AMZ.size());
-
-    for (Producto_AMZ producto_AMZ : get_from_jsonl<Producto_AMZ>("../../amazon_software_5.jsonl"))
+    // 1. Crear mapa de productos.
+    auto map_ains_reviews = std::map<std::string, std::vector<std::ptrdiff_t>>{};
+    for (Producto_AMZ item_producto_AMZ : get_from_jsonl<Producto_AMZ>("../../amazon_software_5.jsonl"))
     {
-        // ToDo comprobar que existe asin.
-        vector_tokens_ains_productos_AMZ.push_back(producto_AMZ.asin);
+        // 1.b Tokenizar el reviewText
+        auto tokens = stdr::to<std::vector<std::string>>(boost::tokenizer{item_producto_AMZ.reviewText});
+        std::ptrdiff_t tokenized_reviews_length = tokens.size();
+        map_ains_reviews[item_producto_AMZ.asin].push_back(tokenized_reviews_length);
     }
 
-    std::println("Tamaño vector de productos rellenado: {}", vector_tokens_ains_productos_AMZ.size());
-    std::println("Primer asin del primer producto: {}", vector_tokens_ains_productos_AMZ.at(1));
+    // 2. Crear segundo Mapa con key referencia asin y extensión medias (double) de sus reviews de opinión.
+    auto map_asin_averages = std::map<std::string, double>{};
+    auto vector_averages = std::vector<double>{};
 
-    // 4. Ordenar alfabéticamente el vector de tokens.
-    stdr::sort(vector_tokens_ains_productos_AMZ);
-
-    // 5. Preparamos un mapa para ser poblado.
-    // Key: Clave la integer frecuencia de repetición.
-    // Value: Array de string que tienen una frecuencia de ocurrencias.
-    // Sabemos que el mapa esta ordenado de menor a mayor. Debemos indicar mayor stricto de orden.
-    // pasamos stdr::greater como politica de ordenación a seguir (por defecto tenía less).
-    auto freq_tokens_map = std::map<int, std::vector<std::string>, stdr::greater>{};
-
-    // 6. Troceamos el vector, en subconjuntos por palabras idénticas.
-    // Inicializamos la Lamda dentro del bucle foreach. Así su vida es valida solo durante el foreach.
-    for (
-        auto same_token = [](std::string const &t1, std::string const &t2)
-        { return t1 == t2; };
-        auto token_chunk : vector_tokens_ains_productos_AMZ | stdv::chunk_by(same_token))
+    for (auto [asin, tokenized_reviewTexts] : map_ains_reviews)
     {
-        // Contar repeticiones en cada trozo.
-        // auto const freq = token_chunk.size();
-        auto const freq = stdr::distance(token_chunk);
-        auto const tkn = *stdr::begin(token_chunk); // para coger datos del iterador, con una copia, desreferenciar.
-        // auto const tkn = stdr::begin(token_chunk)->parametro; // para coger datos del iterador, con su interfaz publica, desreferenciar.
 
-        // Registrames pareja clave valor.
-        freq_tokens_map[freq].push_back(tkn); // freq alias del sobrenombre que llama a la función pública de frecuancia.
-    }
+        double total_tokenized_in_reviews = 0;
+        int num_tokenized_riviews = 0;
 
-    // Imprimir 5 mayores frecuencias de ocurrencia en la terminal, acompañado de su listado de palabras.
-    // Desectructuro a la pareja Destructure Binding"
-    for (auto [freq, tokens] : freq_tokens_map | stdv::take(5))
-    {
-        std::print("{} --> ", freq);
-        for (std::string tkn : tokens)
+        for (const auto &token_review : tokenized_reviewTexts)
         {
-            std::print("{}, ", tkn);
+            total_tokenized_in_reviews += token_review;
+            num_tokenized_riviews++;
+        }
+        map_asin_averages[asin] = total_tokenized_in_reviews / num_tokenized_riviews;
+        vector_averages.push_back(total_tokenized_in_reviews / num_tokenized_riviews);
+    }
+
+    std::println("* 5 primeros productos registrados en el mapa junto a sus medias asociadas.");
+    for (auto [asin, average] : map_asin_averages | stdv::take(5))
+    {
+        std::println("asin: {} --> media: {} ", asin, average);
+    }
+
+    std::println("-----");
+
+    // 3. Las 5 tokenized_reviews_lengthes averages más altas.
+    std::sort(vector_averages.begin(), vector_averages.end(), std::greater<>());
+
+    auto map_top_five_averages_referencias = std::map<double, std::vector<std::string>, stdr::greater>{};
+    for (auto average_in_top_five_ranking : vector_averages | stdv::take(5))
+    {
+        for (auto [asin, average] : map_asin_averages)
+        {
+            if (average_in_top_five_ranking == average)
+            {
+                map_top_five_averages_referencias[average_in_top_five_ranking].push_back(asin);
+            }
+        }
+    }
+
+    std::println("* Top 5 tokenized_reviews_lengthes medias de textos de opinión y su valor asociado un listado de los productos.");
+    for (auto [average, asins] : map_top_five_averages_referencias)
+    {
+        std::print("Media: {} --> ", average);
+        for (std::string asin : asins)
+        {
+            std::print("{}, ", asin);
         }
         std::println();
     }

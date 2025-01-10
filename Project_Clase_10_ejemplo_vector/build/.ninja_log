@@ -1,0 +1,7 @@
+# ninja log v5
+2	133	1736278862915826234	CMakeFiles/vector.dir/main.cpp.o.ddi	575ba04162f379ce
+133	145	1736278862927826334	CMakeFiles/vector.dir/CXX.dd	58044f5aa13997ed
+133	145	1736278862927826334	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/build/CMakeFiles/vector.dir/CXXModules.json	58044f5aa13997ed
+133	145	1736278862927826334	CMakeFiles/vector.dir/main.cpp.o.modmap	58044f5aa13997ed
+145	2646	1736278865425847372	CMakeFiles/vector.dir/main.cpp.o	e355dda019e5bd14
+2646	2745	1736278865526848226	debug/vector	f69a4cdf8526e075
