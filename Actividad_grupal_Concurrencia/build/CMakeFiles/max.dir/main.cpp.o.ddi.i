@@ -140221,8 +140221,8 @@ auto main() -> int
     std::println("Máximo valor uint_fast32_t: {}", max_value_uint_fast32_t);
 
 
-    const int MAX_NUMBER_INTEGERS_CREATION = 20;
 
+    const int MAX_NUMBER_INTEGERS_CREATION = 20;
     std::random_device random;
     std::mt19937 generator(random());
 
@@ -140268,26 +140268,30 @@ auto main() -> int
 
     std::println("- - - - - - - -");
 
-    auto primer_trozo_temporal = vector_enteros_uint_fast32_t.begin();
+    auto iterador_primer_trozo_temporal = vector_enteros_uint_fast32_t.begin();
 
-    auto ultimo_trozo_temporal = primer_trozo_temporal + max_tamanio_trozo;
+    auto iterador_ultimo_trozo_temporal = iterador_primer_trozo_temporal + max_tamanio_trozo;
 
 
 
 
     for (auto i = 0u; i < numero_hilos_hardware - 1; i++)
     {
+        std::println("Hilo lanzado {}", i);
         vector_max_valores_de_cada_trozo.push_back(std::async(std::launch::async
                                                                 , capturar_maximo_valor
-                                                                , std::ranges::subrange{primer_trozo_temporal, ultimo_trozo_temporal}
+                                                                , std::ranges::subrange{iterador_primer_trozo_temporal, iterador_ultimo_trozo_temporal}
                                                             )
                                                         );
 
-        primer_trozo_temporal = ultimo_trozo_temporal;
-        ultimo_trozo_temporal += max_tamanio_trozo;
+        iterador_primer_trozo_temporal = iterador_ultimo_trozo_temporal;
+        iterador_ultimo_trozo_temporal += max_tamanio_trozo;
     }
 
-    capturar_maximo_valor(std::ranges::subrange{primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
+    std::println("Hilo lanzado X pertenece al main");
+    capturar_maximo_valor(std::ranges::subrange{iterador_primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
+
+    std::println("- - - - - - - -");
 
 
     auto vector_max_valores_final = std::vector<uint32_t>{};
@@ -140311,8 +140315,8 @@ auto main() -> int
     std::println("Máximo valor final: {}", *maximo_valor);
 
     return 
-# 126 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp" 3 4
+# 130 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp" 3 4
           0
-# 126 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp"
+# 130 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp"
                       ;
 }

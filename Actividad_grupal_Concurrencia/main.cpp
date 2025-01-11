@@ -33,9 +33,9 @@ auto main() -> int
 
     std::println("Máximo valor uint_fast32_t: {}", max_value_uint_fast32_t);
 
+    // CONFIG
     // const int MAX_NUMBER_INTEGERS_CREATION = 100000000;
     const int MAX_NUMBER_INTEGERS_CREATION = 20;
-
     std::random_device random;  // a seed source for the random number engine
     std::mt19937 generator(random()); // mersenne_twister_engine seeded with rd()
     // std::uniform_int_distribution<> distribution(min_value_uint_fast32_t, max_value_uint_fast32_t);
@@ -81,26 +81,30 @@ auto main() -> int
 
     std::println("- - - - - - - -");
 
-    auto primer_trozo_temporal = vector_enteros_uint_fast32_t.begin(); //Es un iterador
-    // std::println("Cominezo primer_trozo_temporal: {}", primer_trozo_temporal);
-    auto ultimo_trozo_temporal = primer_trozo_temporal + max_tamanio_trozo;
-    // std::println("Valor ultimo_trozo_temporal: {}", ultimo_trozo_temporal);
+    auto iterador_primer_trozo_temporal = vector_enteros_uint_fast32_t.begin(); //Es un iterador
+    // std::println("Cominezo iterador_primer_trozo_temporal: {}", iterador_primer_trozo_temporal);
+    auto iterador_ultimo_trozo_temporal = iterador_primer_trozo_temporal + max_tamanio_trozo; // Centinela
+    // std::println("Valor iterador_ultimo_trozo_temporal: {}", iterador_ultimo_trozo_temporal);
 
     // Hilos
 
     for (auto i = 0u; i < numero_hilos_hardware - 1; i++) // Debemos convertir el contador i en unsigned (sin signo).
     {
+        std::println("Hilo lanzado {}", i);
         vector_max_valores_de_cada_trozo.push_back(std::async(std::launch::async
                                                                 , capturar_maximo_valor
-                                                                , std::ranges::subrange{primer_trozo_temporal, ultimo_trozo_temporal}
+                                                                , std::ranges::subrange{iterador_primer_trozo_temporal, iterador_ultimo_trozo_temporal}
                                                             )
                                                         );
 
-        primer_trozo_temporal = ultimo_trozo_temporal;
-        ultimo_trozo_temporal += max_tamanio_trozo;
+        iterador_primer_trozo_temporal = iterador_ultimo_trozo_temporal;
+        iterador_ultimo_trozo_temporal += max_tamanio_trozo;
     }
-    // // hilo que se encarga del main
-    capturar_maximo_valor(std::ranges::subrange{primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
+    // hilo que se encarga del main
+    std::println("Hilo lanzado X pertenece al main");
+    capturar_maximo_valor(std::ranges::subrange{iterador_primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
+
+    std::println("- - - - - - - -");
 
     // Vector final con el máximo de cada hilo
     auto vector_max_valores_final = std::vector<uint32_t>{};
