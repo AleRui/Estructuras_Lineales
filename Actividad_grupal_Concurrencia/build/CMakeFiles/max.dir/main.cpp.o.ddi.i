@@ -140206,19 +140206,22 @@ namespace __detail
 # 20 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp"
 auto main() -> int
 {
+    using uf32 = std::uint_fast32_t;
+    using clock = std::chrono::steady_clock;
 
+    auto const clock_start = clock::now();
 
-    auto vector_enteros_uint_fast32_t = std::vector<uint32_t>{};
+    auto vector_enteros_uint_fast32_t = std::vector<uf32>{};
 
     std::println("Tamaño del vector al inicio: {}", vector_enteros_uint_fast32_t.size());
 
-    uint32_t const min_value_uint_fast32_t = std::numeric_limits<uint32_t>::min();
+    uf32 const min_value_uint_fast32 = std::numeric_limits<uf32>::min();
 
-    std::println("Mínimo valor uint_fast32_t: {}", min_value_uint_fast32_t);
+    std::println("Mínimo valor uint_fast32_t: {}", min_value_uint_fast32);
 
-    uint32_t const max_value_uint_fast32_t = std::numeric_limits<uint32_t>::max();
+    uf32 const max_value_uint_fast32 = std::numeric_limits<uf32>::max();
 
-    std::println("Máximo valor uint_fast32_t: {}", max_value_uint_fast32_t);
+    std::println("Máximo valor uint_fast32_t: {}", max_value_uint_fast32);
 
 
 
@@ -140226,14 +140229,13 @@ auto main() -> int
     std::random_device random;
     std::mt19937 generator(random());
 
-    std::uniform_int_distribution<> distribution(0, 1000);
+
+    std::uniform_int_distribution<> distribution(uf32{0}, 1000);
 
     for (int i = 0; i < MAX_NUMBER_INTEGERS_CREATION; i++)
     {
-        uint32_t random_uint32_t_generated = distribution(generator);
-        vector_enteros_uint_fast32_t.push_back(random_uint32_t_generated);
-
-        std::println("Valor generado: {}", random_uint32_t_generated);
+        uf32 random_uf32_generated = distribution(generator);
+        vector_enteros_uint_fast32_t.push_back(random_uf32_generated);
     }
 
     std::println("Tamaño del vector al rellenado: {}", vector_enteros_uint_fast32_t.size());
@@ -140253,26 +140255,24 @@ auto main() -> int
     std::println("Tamaño máximo del trozo/chunk: {}", max_tamanio_trozo);
 
 
+    auto vector_max_valores_de_cada_trozo = std::vector<std::future<uf32>>{};
 
 
 
-    auto capturar_maximo_valor = [] (auto chunk) -> uint32_t
+    auto capturar_maximo_valor = [] (auto chunk) -> uf32
+
     {
         auto result = std::max_element(chunk.begin(), chunk.end());
+        std::println("max_value_result: {}", *result);
         return *result;
     };
-
-    auto vector_max_valores_de_cada_trozo = std::vector<std::future<uint32_t>>{};
 
     std::println("Tamaño vector_max_valores_de_cada_trozo: {}", vector_max_valores_de_cada_trozo.size());
 
     std::println("- - - - - - - -");
 
     auto iterador_primer_trozo_temporal = vector_enteros_uint_fast32_t.begin();
-
     auto iterador_ultimo_trozo_temporal = iterador_primer_trozo_temporal + max_tamanio_trozo;
-
-
 
 
     for (auto i = 0u; i < numero_hilos_hardware - 1; i++)
@@ -140282,28 +140282,33 @@ auto main() -> int
                                                                 , capturar_maximo_valor
                                                                 , std::ranges::subrange{iterador_primer_trozo_temporal, iterador_ultimo_trozo_temporal}
                                                             )
-                                                        );
+
+                                                    );
 
         iterador_primer_trozo_temporal = iterador_ultimo_trozo_temporal;
         iterador_ultimo_trozo_temporal += max_tamanio_trozo;
     }
 
     std::println("Hilo lanzado X pertenece al main");
-    capturar_maximo_valor(std::ranges::subrange{iterador_primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
+    auto test_captura_valor_main = capturar_maximo_valor(std::ranges::subrange{iterador_primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
+    std::println("valor captura main {}", test_captura_valor_main);
 
     std::println("- - - - - - - -");
 
 
-    auto vector_max_valores_final = std::vector<uint32_t>{};
-    for (std::future<uint32_t>& future : vector_max_valores_de_cada_trozo) {
-        uint32_t capturado = future.get();
+    auto vector_max_valores_final = std::vector<uf32>{};
+
+    for (std::future<uf32>& future : vector_max_valores_de_cada_trozo) {
+        uf32 capturado = future.get();
         std::println("TCapturado: {}", capturado);
         vector_max_valores_final.push_back(capturado);
     }
 
+    vector_max_valores_final.push_back(test_captura_valor_main);
+
     std::println("- - - - - - - -");
 
-    for (uint32_t valor_final : vector_max_valores_final)
+    for (uf32 valor_final : vector_max_valores_final)
     {
         std::println("Valor final: {}", valor_final);
     }
@@ -140314,9 +140319,15 @@ auto main() -> int
 
     std::println("Máximo valor final: {}", *maximo_valor);
 
+    auto const clock_end = clock::now();
+
+    std::println("- - - - - - - -");
+
+    std::println("Tiempo ejecución: {}.", (clock_end - clock_start));
+
     return 
-# 130 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp" 3 4
+# 141 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp" 3 4
           0
-# 130 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp"
+# 141 "/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_grupal_Concurrencia/main.cpp"
                       ;
 }

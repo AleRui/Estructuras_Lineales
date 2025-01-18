@@ -1,7 +1,7 @@
 #include <algorithm> // ordenar, buscar, hacer particiones... algoritmos de ordenacion
 #include <chrono>
 #include <cstdlib>   // Biblioteca Standard de C, contiene la función std::tolower (paso a minúscula)
-#include <cstdint>   // for uint32_t
+#include <cstdint>   // for uf32
 #include <fstream>   // flujos I/O a ficheros
 #include <future>    // contiene la función std::async para la ejecución asíncrona de funciones
 #include <iostream>
@@ -19,34 +19,36 @@
 
 auto main() -> int
 {
-    // std::vector<uint32_t> vector_enteros_uint_fast32_t = {}; // unsigned integer 32-bit type
+    using uf32 = std::uint_fast32_t; //QUIQUE alias
+    using clock = std::chrono::steady_clock; //QUIQUE alias reloj
+
+    auto const clock_start = clock::now();
     
-    auto vector_enteros_uint_fast32_t = std::vector<uint32_t>{};
+    auto vector_enteros_uint_fast32_t = std::vector<uf32>{};
     
     std::println("Tamaño del vector al inicio: {}", vector_enteros_uint_fast32_t.size());
 
-    uint32_t const min_value_uint_fast32_t = std::numeric_limits<uint32_t>::min();
+    uf32 const min_value_uint_fast32 = std::numeric_limits<uf32>::min();
 
-    std::println("Mínimo valor uint_fast32_t: {}", min_value_uint_fast32_t);
+    std::println("Mínimo valor uint_fast32_t: {}", min_value_uint_fast32);
 
-    uint32_t const max_value_uint_fast32_t = std::numeric_limits<uint32_t>::max();
+    uf32 const max_value_uint_fast32 = std::numeric_limits<uf32>::max();
 
-    std::println("Máximo valor uint_fast32_t: {}", max_value_uint_fast32_t);
+    std::println("Máximo valor uint_fast32_t: {}", max_value_uint_fast32);
 
     // CONFIG
     // const int MAX_NUMBER_INTEGERS_CREATION = 100000000;
     const int MAX_NUMBER_INTEGERS_CREATION = 20;
     std::random_device random;  // a seed source for the random number engine
     std::mt19937 generator(random()); // mersenne_twister_engine seeded with rd()
-    // std::uniform_int_distribution<> distribution(min_value_uint_fast32_t, max_value_uint_fast32_t);
-    std::uniform_int_distribution<> distribution(0, 1000);
+    // std::uniform_int_distribution<> distribution(min_value_uint_fast32, max_value_uint_fast32);
+    // std::uniform_int_distribution<> distribution(uf32{0}, std::numeric_limits<uf32>::max());
+    std::uniform_int_distribution<> distribution(uf32{0}, 1000);
 
     for (int i = 0; i < MAX_NUMBER_INTEGERS_CREATION; i++)
     {
-        uint32_t random_uint32_t_generated = distribution(generator);
-        vector_enteros_uint_fast32_t.push_back(random_uint32_t_generated);
-
-        std::println("Valor generado: {}", random_uint32_t_generated);
+        uf32 random_uf32_generated = distribution(generator);
+        vector_enteros_uint_fast32_t.push_back(random_uf32_generated);
     }
 
     std::println("Tamaño del vector al rellenado: {}", vector_enteros_uint_fast32_t.size());
@@ -65,58 +67,61 @@ auto main() -> int
 
     std::println("Tamaño máximo del trozo/chunk: {}", max_tamanio_trozo);
 
-    // uint32_t max_value = *std::max_element(vector_enteros_uint_fast32_t.begin(), vector_enteros_uint_fast32_t.end());
-    // std::println("Tamaño máximo del trozo/chunk: {}", max_value);
+
+    auto vector_max_valores_de_cada_trozo = std::vector<std::future<uf32>>{};
+
 
     // Establecer funcion landa para hayar el máximo.
-    auto capturar_maximo_valor = [] (auto chunk) -> uint32_t // & Capturamos variable que vive fuera del ambito TODO Es necesario?
+    auto capturar_maximo_valor = [] (auto chunk) -> uf32 // & Capturamos variable que vive fuera del ambito TODO Es necesario?
+    // auto capturar_maximo_valor = [] (auto chunk) -> void // & Capturamos variable que vive fuera del ambito TODO Es necesario?
     {
         auto result = std::max_element(chunk.begin(), chunk.end());
+        std::println("max_value_result: {}", *result);
         return *result;
     }; // Las funciones Landa deben de estar cerradas.
-
-    auto vector_max_valores_de_cada_trozo = std::vector<std::future<uint32_t>>{};
 
     std::println("Tamaño vector_max_valores_de_cada_trozo: {}", vector_max_valores_de_cada_trozo.size());
 
     std::println("- - - - - - - -");
 
     auto iterador_primer_trozo_temporal = vector_enteros_uint_fast32_t.begin(); //Es un iterador
-    // std::println("Cominezo iterador_primer_trozo_temporal: {}", iterador_primer_trozo_temporal);
     auto iterador_ultimo_trozo_temporal = iterador_primer_trozo_temporal + max_tamanio_trozo; // Centinela
-    // std::println("Valor iterador_ultimo_trozo_temporal: {}", iterador_ultimo_trozo_temporal);
 
     // Hilos
-
     for (auto i = 0u; i < numero_hilos_hardware - 1; i++) // Debemos convertir el contador i en unsigned (sin signo).
     {
         std::println("Hilo lanzado {}", i);
         vector_max_valores_de_cada_trozo.push_back(std::async(std::launch::async
-                                                                , capturar_maximo_valor
-                                                                , std::ranges::subrange{iterador_primer_trozo_temporal, iterador_ultimo_trozo_temporal}
+                                                                , capturar_maximo_valor // funcion que se le pasa
+                                                                , std::ranges::subrange{iterador_primer_trozo_temporal, iterador_ultimo_trozo_temporal} // parametro chunk que se le pasa a la funcion
                                                             )
-                                                        );
+                                                            // );
+                                                    );
 
         iterador_primer_trozo_temporal = iterador_ultimo_trozo_temporal;
         iterador_ultimo_trozo_temporal += max_tamanio_trozo;
     }
     // hilo que se encarga del main
     std::println("Hilo lanzado X pertenece al main");
-    capturar_maximo_valor(std::ranges::subrange{iterador_primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
+    auto test_captura_valor_main = capturar_maximo_valor(std::ranges::subrange{iterador_primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
+    std::println("valor captura main {}", test_captura_valor_main);
 
     std::println("- - - - - - - -");
 
     // Vector final con el máximo de cada hilo
-    auto vector_max_valores_final = std::vector<uint32_t>{};
-    for (std::future<uint32_t>& future : vector_max_valores_de_cada_trozo) {
-        uint32_t capturado = future.get();
+    auto vector_max_valores_final = std::vector<uf32>{};
+
+    for (std::future<uf32>& future : vector_max_valores_de_cada_trozo) {
+        uf32 capturado = future.get();
         std::println("TCapturado: {}", capturado);
         vector_max_valores_final.push_back(capturado);
     }
 
+    vector_max_valores_final.push_back(test_captura_valor_main);
+
     std::println("- - - - - - - -");
 
-    for (uint32_t valor_final : vector_max_valores_final)
+    for (uf32 valor_final : vector_max_valores_final)
     {
         std::println("Valor final: {}", valor_final);
     }
@@ -126,6 +131,12 @@ auto main() -> int
     auto maximo_valor = std::max_element(vector_max_valores_final.begin(), vector_max_valores_final.end());
 
     std::println("Máximo valor final: {}", *maximo_valor);
+
+    auto const clock_end = clock::now();
+
+    std::println("- - - - - - - -");
+
+    std::println("Tiempo ejecución: {}.", (clock_end - clock_start));
 
     return EXIT_SUCCESS;
 }
