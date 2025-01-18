@@ -43,7 +43,7 @@ auto main() -> int
     std::mt19937 generator(random()); // mersenne_twister_engine seeded with rd()
     // std::uniform_int_distribution<> distribution(min_value_uint_fast32, max_value_uint_fast32);
     // std::uniform_int_distribution<> distribution(uf32{0}, std::numeric_limits<uf32>::max());
-    std::uniform_int_distribution<> distribution(uf32{0}, 1000);
+    std::uniform_int_distribution<> distribution(uf32{0}, 1000000000);
 
     for (int i = 0; i < MAX_NUMBER_INTEGERS_CREATION; i++)
     {
