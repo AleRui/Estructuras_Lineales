@@ -140290,8 +140290,8 @@ auto main() -> int
     }
 
     std::println("Hilo lanzado X pertenece al main");
-    auto test_captura_valor_main = capturar_maximo_valor(std::ranges::subrange{iterador_primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
-    std::println("valor captura main {}", test_captura_valor_main);
+    auto captura_valor_main = capturar_maximo_valor(std::ranges::subrange{iterador_primer_trozo_temporal, vector_enteros_uint_fast32_t.end()});
+    std::println("valor captura main {}", captura_valor_main);
 
     std::println("- - - - - - - -");
 
@@ -140304,7 +140304,7 @@ auto main() -> int
         vector_max_valores_final.push_back(capturado);
     }
 
-    vector_max_valores_final.push_back(test_captura_valor_main);
+    vector_max_valores_final.push_back(captura_valor_main);
 
     std::println("- - - - - - - -");
 
