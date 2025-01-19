@@ -20,7 +20,6 @@ auto main() -> int
 
     using uf32 = std::uint_fast32_t;
     using clock = std::chrono::steady_clock;
-    using namespace std::chrono_literals; // se necesita?
 
     // CONFIG
     const int MAX_NUMBER_INTEGERS_CREATION = 100000000;
