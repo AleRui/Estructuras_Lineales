@@ -58,7 +58,7 @@ auto main() -> int
     auto const clock_end_no_thread = clock::now();
         std::println("- - - - - - - -");
 
-    std::println("Tiempo ejecución sin hilos: {}.", (std::chrono::duration_cast<std::chrono::seconds>(clock_end_no_thread-clock_start_no_thread).count()));
+    std::println("Tiempo ejecución sin hilos: {}s.", (std::chrono::duration_cast<std::chrono::seconds>(clock_end_no_thread-clock_start_no_thread).count()));
     auto const clock_start = clock::now();
     for (int i = 0; i < MAX_NUMBER_INTEGERS_CREATION; i++)
     {
@@ -151,7 +151,7 @@ auto main() -> int
 
     std::println("- - - - - - - -");
 
-    std::println("Tiempo ejecución con hilos: {}.", (std::chrono::duration_cast<std::chrono::seconds>(clock_end-clock_start).count()));
+    std::println("Tiempo ejecución con hilos: {}s.", (std::chrono::duration_cast<std::chrono::seconds>(clock_end-clock_start).count()));
 
     return EXIT_SUCCESS;
 }
