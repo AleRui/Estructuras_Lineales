@@ -1,17 +1,14 @@
-#include <algorithm> // ordenar, buscar, hacer particiones... algoritmos de ordenacion
-#include <chrono>
-#include <cstdlib>   // Biblioteca Standard de C, contiene la función std::tolower (paso a minúscula)
-#include <cstdint>   // for uf32
-#include <fstream>   // flujos I/O a ficheros
-#include <future>    // contiene la función std::async para la ejecución asíncrona de funciones
-#include <iostream>
-#include <limits>
-#include <map>       // contenedor asociativo de clave única ordenada
-#include <print>     // imprimir en consola/terminal
-#include <random>
-#include <ranges>    // vistas como chunk_by
-#include <string>    // trabajar con string
-#include <vector>    // contenedor secuencial de elementos contiguos. Amigo memoria cache.
+#include <algorithm> // Para std::max_element
+#include <chrono>    // Para manejo de tiempos y cronómetros
+#include <cstdint>   // Para tipos de datos enteros de tamaño fijo (uf32)
+#include <future>    // Para std::async y std::future
+#include <iostream>  // Para entrada/salida estándar
+#include <limits>    // Para std::numeric_limits
+#include <random>    // Para generación de números aleatorios
+#include <ranges>    // Para std::ranges::subrange
+#include <thread>    // Para std::thread::hardware_concurrency
+#include <vector>    // Para std::vector
+#include <print>     // Para imprimir en consola
 
 
 auto main() -> int
@@ -21,8 +18,8 @@ auto main() -> int
     //                               General
     // #######################################################################
 
-    using uf32 = std::uint_fast32_t; //QUIQUE alias
-    using clock = std::chrono::steady_clock; //QUIQUE alias reloj
+    using uf32 = std::uint_fast32_t;
+    using clock = std::chrono::steady_clock;
     using namespace std::chrono_literals; // se necesita?
 
     // CONFIG
