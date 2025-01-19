@@ -51,12 +51,14 @@ auto main() -> int
         uf32 random_uf32_generated = distribution(generator);
         vector_enteros_no_thread_uint_fast32_t.push_back(random_uf32_generated);
     }
+    
+    auto maximo_valor_no_thread = std::max_element(vector_enteros_no_thread_uint_fast32_t.begin(), vector_enteros_no_thread_uint_fast32_t.end());
+    std::println("Máximo valor final no thread: {}", *maximo_valor_no_thread);
+    
     auto const clock_end_no_thread = clock::now();
         std::println("- - - - - - - -");
 
-   
     std::println("Tiempo ejecución sin hilos: {}.", (std::chrono::duration_cast<std::chrono::seconds>(clock_end_no_thread-clock_start_no_thread).count()));
-
     auto const clock_start = clock::now();
     for (int i = 0; i < MAX_NUMBER_INTEGERS_CREATION; i++)
     {
