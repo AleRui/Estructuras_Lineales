@@ -1,6 +1,7 @@
 CMakeFiles/roland_garros.dir/main.cpp.o.ddi: \
  /home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_extra_opcional/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/14/cstdlib \
+ /usr/include/stdc-predef.h /usr/include/c++/14/algorithm \
+ /usr/include/c++/14/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -11,7 +12,34 @@ CMakeFiles/roland_garros.dir/main.cpp.o.ddi: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/cpu_defines.h \
- /usr/include/c++/14/pstl/pstl_config.h /usr/include/stdlib.h \
+ /usr/include/c++/14/pstl/pstl_config.h \
+ /usr/include/c++/14/bits/functexcept.h \
+ /usr/include/c++/14/bits/exception_defines.h \
+ /usr/include/c++/14/bits/cpp_type_traits.h \
+ /usr/include/c++/14/ext/type_traits.h \
+ /usr/include/c++/14/ext/numeric_traits.h \
+ /usr/include/c++/14/bits/stl_pair.h /usr/include/c++/14/type_traits \
+ /usr/include/c++/14/bits/version.h /usr/include/c++/14/bits/move.h \
+ /usr/include/c++/14/bits/utility.h /usr/include/c++/14/compare \
+ /usr/include/c++/14/concepts \
+ /usr/include/c++/14/bits/stl_iterator_base_types.h \
+ /usr/include/c++/14/bits/iterator_concepts.h \
+ /usr/include/c++/14/bits/ptr_traits.h \
+ /usr/include/c++/14/bits/ranges_cmp.h \
+ /usr/include/c++/14/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/14/bits/concept_check.h \
+ /usr/include/c++/14/debug/assertions.h \
+ /usr/include/c++/14/bits/stl_iterator.h /usr/include/c++/14/new \
+ /usr/include/c++/14/bits/exception.h \
+ /usr/include/c++/14/bits/stl_construct.h \
+ /usr/include/c++/14/debug/debug.h \
+ /usr/include/c++/14/bits/predefined_ops.h /usr/include/c++/14/bit \
+ /usr/include/c++/14/bits/stl_algo.h \
+ /usr/include/c++/14/bits/algorithmfwd.h \
+ /usr/include/c++/14/initializer_list /usr/include/c++/14/bits/stl_heap.h \
+ /usr/include/c++/14/bits/uniform_int_dist.h \
+ /usr/include/c++/14/bits/stl_tempbuf.h /usr/include/c++/14/cstdlib \
+ /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
@@ -46,34 +74,7 @@ CMakeFiles/roland_garros.dir/main.cpp.o.ddi: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/14/bits/std_abs.h /usr/include/c++/14/algorithm \
- /usr/include/c++/14/bits/stl_algobase.h \
- /usr/include/c++/14/bits/functexcept.h \
- /usr/include/c++/14/bits/exception_defines.h \
- /usr/include/c++/14/bits/cpp_type_traits.h \
- /usr/include/c++/14/ext/type_traits.h \
- /usr/include/c++/14/ext/numeric_traits.h \
- /usr/include/c++/14/bits/stl_pair.h /usr/include/c++/14/type_traits \
- /usr/include/c++/14/bits/version.h /usr/include/c++/14/bits/move.h \
- /usr/include/c++/14/bits/utility.h /usr/include/c++/14/compare \
- /usr/include/c++/14/concepts \
- /usr/include/c++/14/bits/stl_iterator_base_types.h \
- /usr/include/c++/14/bits/iterator_concepts.h \
- /usr/include/c++/14/bits/ptr_traits.h \
- /usr/include/c++/14/bits/ranges_cmp.h \
- /usr/include/c++/14/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/14/bits/concept_check.h \
- /usr/include/c++/14/debug/assertions.h \
- /usr/include/c++/14/bits/stl_iterator.h /usr/include/c++/14/new \
- /usr/include/c++/14/bits/exception.h \
- /usr/include/c++/14/bits/stl_construct.h \
- /usr/include/c++/14/debug/debug.h \
- /usr/include/c++/14/bits/predefined_ops.h /usr/include/c++/14/bit \
- /usr/include/c++/14/bits/stl_algo.h \
- /usr/include/c++/14/bits/algorithmfwd.h \
- /usr/include/c++/14/initializer_list /usr/include/c++/14/bits/stl_heap.h \
- /usr/include/c++/14/bits/uniform_int_dist.h \
- /usr/include/c++/14/bits/stl_tempbuf.h \
+ /usr/include/c++/14/bits/std_abs.h \
  /usr/include/c++/14/bits/ranges_algo.h /usr/include/c++/14/optional \
  /usr/include/c++/14/exception /usr/include/c++/14/bits/exception_ptr.h \
  /usr/include/c++/14/bits/cxxabi_init_exception.h \
