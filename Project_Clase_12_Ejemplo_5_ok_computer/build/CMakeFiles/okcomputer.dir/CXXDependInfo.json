@@ -1,0 +1,18 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/build",
+	"dir-cur-src" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer",
+	"dir-top-bld" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/build",
+	"dir-top-src" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/build/CMakeFiles/okcomputer.dir"
+}

@@ -1,0 +1,13 @@
+# ninja log v5
+0	159	1737488531382574540	CMakeFiles/okcomputer.dir/main.cpp.o.ddi	4e3d1add1b847fa
+3207	3313	1737488534535615110	debug/okcomputer	7fb04ab12261382b
+160	170	1737488531393574681	CMakeFiles/okcomputer.dir/CXX.dd	82082e85b35c431e
+160	170	1737488531393574681	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/build/CMakeFiles/okcomputer.dir/CXXModules.json	82082e85b35c431e
+160	170	1737488531393574681	CMakeFiles/okcomputer.dir/main.cpp.o.modmap	82082e85b35c431e
+171	3207	1737488534427613720	CMakeFiles/okcomputer.dir/main.cpp.o	1129d7e0329ca35
+5	270	1738173392934893699	CMakeFiles/okcomputer.dir/main.cpp.o.ddi	4e3d1add1b847fa
+270	285	1738173392949893866	CMakeFiles/okcomputer.dir/CXX.dd	82082e85b35c431e
+270	285	1738173392949893866	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/build/CMakeFiles/okcomputer.dir/CXXModules.json	82082e85b35c431e
+270	285	1738173392949893866	CMakeFiles/okcomputer.dir/main.cpp.o.modmap	82082e85b35c431e
+286	3449	1738173396108929035	CMakeFiles/okcomputer.dir/main.cpp.o	1129d7e0329ca35
+3449	3565	1738173396229930384	debug/okcomputer	7fb04ab12261382b

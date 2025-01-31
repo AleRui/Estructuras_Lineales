@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/build",
+  "command": "/usr/bin/g++-14 -g -std=c++23 -Wall -Wextra -pedantic -Werror -fmodules-ts -fmodule-mapper=CMakeFiles/okcomputer.dir/main.cpp.o.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles/okcomputer.dir/main.cpp.o -c /home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/main.cpp",
+  "file": "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/main.cpp",
+  "output": "CMakeFiles/okcomputer.dir/main.cpp.o"
+}
+]

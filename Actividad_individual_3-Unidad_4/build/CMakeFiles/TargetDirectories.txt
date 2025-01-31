@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_3-Unidad_4/build/CMakeFiles/walking_dead.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_3-Unidad_4/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_3-Unidad_4/build/CMakeFiles/rebuild_cache.dir

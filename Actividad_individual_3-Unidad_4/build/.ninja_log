@@ -1,0 +1,19 @@
+# ninja log v5
+473	7155	1737398261638376164	CMakeFiles/walking_dead.dir/main.cpp.o	69c5e3c5f9a75a17
+7155	7309	1737398261798378382	debug/walking_dead	d0de07667bf3ec1f
+461	473	1737398254964283637	CMakeFiles/walking_dead.dir/main.cpp.o.modmap	203e1a19634051e2
+461	473	1737398254964283637	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_3-Unidad_4/build/CMakeFiles/walking_dead.dir/CXXModules.json	203e1a19634051e2
+461	473	1737398254964283637	CMakeFiles/walking_dead.dir/CXX.dd	203e1a19634051e2
+2	460	1737398254950283442	CMakeFiles/walking_dead.dir/main.cpp.o.ddi	497ea52d2b931b30
+2	389	1737398527103020711	CMakeFiles/walking_dead.dir/main.cpp.o.ddi	497ea52d2b931b30
+389	401	1737398527118020915	CMakeFiles/walking_dead.dir/CXX.dd	203e1a19634051e2
+389	401	1737398527118020915	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_3-Unidad_4/build/CMakeFiles/walking_dead.dir/CXXModules.json	203e1a19634051e2
+389	401	1737398527118020915	CMakeFiles/walking_dead.dir/main.cpp.o.modmap	203e1a19634051e2
+401	7159	1737398533869112839	CMakeFiles/walking_dead.dir/main.cpp.o	69c5e3c5f9a75a17
+7159	7322	1737398534037115126	debug/walking_dead	d0de07667bf3ec1f
+2	390	1737398612586182447	CMakeFiles/walking_dead.dir/main.cpp.o.ddi	497ea52d2b931b30
+390	405	1737398612603182678	CMakeFiles/walking_dead.dir/CXX.dd	203e1a19634051e2
+390	405	1737398612603182678	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_3-Unidad_4/build/CMakeFiles/walking_dead.dir/CXXModules.json	203e1a19634051e2
+390	405	1737398612603182678	CMakeFiles/walking_dead.dir/main.cpp.o.modmap	203e1a19634051e2
+405	7295	1737398619487276039	CMakeFiles/walking_dead.dir/main.cpp.o	69c5e3c5f9a75a17
+7296	7468	1737398619665278452	debug/walking_dead	d0de07667bf3ec1f

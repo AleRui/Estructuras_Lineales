@@ -73622,6 +73622,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 4 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp" 2
+
 # 1 "/usr/include/c++/14/print" 1 3
 # 32 "/usr/include/c++/14/print" 3
        
@@ -73732,7 +73733,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
 }
-# 5 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp" 2
+# 6 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp" 2
 
 # 1 "/usr/include/c++/14/vector" 1 3
 # 58 "/usr/include/c++/14/vector" 3
@@ -78654,10 +78655,10 @@ namespace std __attribute__ ((__visibility__ ("default")))
     }
 
 }
-# 7 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp" 2
+# 8 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp" 2
 
 
-# 8 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp"
+# 9 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp"
 template<typename T>
 class Vector
 {
@@ -78669,24 +78670,102 @@ class Vector
    T* v_;
    T* space_;
    T* last_;
-
-
-
-
+# 28 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp"
    public:
+# 37 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp"
+      Vector()
+         : v_{new T[0]}, space_{v_}, last_{v_}
+      {}
+
+
+
+      ~Vector()
+      {
+         delete[] v_;
+      }
+
+
+
+
+      auto size() -> std::size_t { return space_ - v_ ; }
+
+      auto capacity() -> std::size_t { return last_ - v_ ; }
+
+
+      auto empty() -> bool { return v_ == space_ ; }
+
+
+
+
+
+      auto operator[](std::size_t idx) -> T& { return v_[idx]; }
+
+
+
+
+      auto at(std::size_t idx) -> T&
+      {
+
+         if ( idx >= size()) {
+            throw std::out_of_range{};
+         }
+         return v_[idx];
+      }
+
+
+      auto begin() -> T* { return v_; }
+
+      auto end() -> T* { return space_; }
+
+
+      auto push_back(T val) -> void
+      {
+
+
+
+         if (space_ == last_) {
+
+
+            auto cp = capacity();
+
+
+
+
+
+
+            auto new_cp = (cp == 0) ? std::size_t{2} : 2*cp;
+
+            T* new_block = new T[new_cp];
+
+
+
+            try {
+
+               for (auto i = std::size_t{0}; i < cp; ++i) {
+                  new_block[i] = v_[i];
+               }
+
+               new_block[cp] = val;
+            }
+            catch (...) {
+               delete[] new_block;
+               throw;
+            }
+
+         }
+      }
 
 };
 
 auto main() -> int
 {
    auto words = std::vector<std::string>{};
-
-
+# 135 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp"
    auto wrd = std::string{};
 
 
    auto mssg = [] () {
-      std::print("Introduce una palabra: ");
+      std::print("Introduce una palabra (CTRL+Z o CTRL+D): ");
       return true;
    };
 
@@ -78698,16 +78777,17 @@ auto main() -> int
 
    std::ranges::sort(words);
 
-   for (std::string const& w : words)
+
+   for (auto it = words.begin(); it != words.end(); ++it)
 
    {
-      std::println("{}", w);
 
+      std::println("{}", *it);
    }
 
    return 
-# 55 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp" 3 4
+# 159 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp" 3 4
          0
-# 55 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp"
+# 159 "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_10_ejemplo_vector/main.cpp"
                      ;
 }

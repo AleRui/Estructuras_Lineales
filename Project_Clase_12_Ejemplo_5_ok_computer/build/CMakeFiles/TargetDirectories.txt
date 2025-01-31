@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/build/CMakeFiles/okcomputer.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_12_Ejemplo_5_ok_computer/build/CMakeFiles/rebuild_cache.dir

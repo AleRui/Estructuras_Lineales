@@ -1,6 +1,7 @@
 #include <algorithm> // Incluye std::ranges::sort.
 #include <cstdlib>   // Biblioteca Standard de C.
 #include <iostream>  // Contiene función std::cin.
+#include <exception> // Clase base de las que deriban todas las clases de excepción de C++. Tiene std::out_of_range
 #include <print>     // imprimir en consola/terminal.
 #include <string>    // trabajar con string.
 #include <vector>    // contenedor secuencial homogéneo de elementos contiguos. Amigo memoria cache.
@@ -58,21 +59,85 @@ class Vector // Vamos a hacer un vector "de juguete".
       // Funciones de acceso.
       // Sobrecarga de operadores operator[].
       // Da acceso de escritura y lectura a ese hueco del array.
-      operator[](std::size_t idx) -> T& { return v_[idx]; } // Devuelvo un acceso de lectur al original T&.
+      auto operator[](std::size_t idx) -> T& { return v_[idx]; } // Devuelvo un acceso de lectur al original T&.
+      // Este operador [idx] no tiene o hace bound checking
+      // no tiene control de límite de acceso
+      // si un vector tiene 2 valores ([0], [1]) y llamo al tercer valor [2] no habíra problema, y da acceso ahí
+      // esto corrompe la memoria y le podría añadir un valor
+      auto at(std::size_t idx) -> T& // Aquí tenemos ya comprobación de rango. Con Bound Cheking
+      {
+         // if (size() <= idx) {
+         if ( idx >= size()) {
+            throw std::out_of_range{};
+         }
+         return v_[idx]; 
+      }
+
+      // Begin() devuelve un iterador (pujntero de tipo T) a la primer casilla del vector. No una referencia. Donde estaría el primer elemento si hay alguno.
+      auto begin() -> T* { return v_; }
+      // End() centinela si llegas a esta dirección es porque te has salido fuera del rango de memoria.
+      auto end() -> T* { return space_; }
+
+      // Introducción al fondo de nuevos elementos de tipo T.
+      auto push_back(T val) -> void
+      {
+         // Situaciones
+         // 1. Cuando el vector esté vacio reserva dos casillas.
+         // Tanto si el vector no tiene nada como si tiene cosas y he agotado la capacidad reservada
+         if (space_ == last_) { // capacidad agotada o primera vez que se invoca push_back
+            // si es vacio -> reserva dos
+            // si se queda sin capacidad. Reserva capacidad actual * 2.
+            auto cp = capacity(); // capoacidad actual del array // capacidad si esta vacio es 0 y si v_ y las es igual tiene un valor.
+            // auto new_cp = std::size_t{0};
+            // if (cp == 0) {
+            //    new_cp = 2;
+            // } else {
+            //    new_cp = 2*cp;
+            // }
+            auto new_cp = (cp == 0) ? std::size_t{2} : 2*cp; // capacidad del nuevo array.
+            // nuevo bloque de memoriua con tantos objetos tipo T como indique new_cp;
+            T* new_block = new T[new_cp]; // Devuelvo un puntero a donde nace tu nuevo array.
+            // SI no encuentra que devolver va a devolver bad_alloc.
+
+            // GARANTIA FUERTE ANTE EXCEPCIONES. Si la función no puede cumplir lo que pretende, se lanza la excepcioón y el vector original se queda igual que como estaba.
+            // No se van a corromper tus datos.
+            try {
+               // voy al vector orioginal
+               for (auto i = std::size_t{0}; i < cp; ++i) {
+                  new_block[i] = v_[i];
+               }
+               // meto el valor nuevo
+               new_block[cp] = val; //me voy a la casilla siguiente que seguiria a mi array original que antes no me cabía.
+            }
+            catch (...) { // de lanzarse una excepción. Destruimos el array y relanzamos la excepcion.
+               delete[] new_block;
+               throw; // coge la excepcion actual capturada por catch y la relanza.
+            }
+
+         }
+      }
 
 };
 
 auto main() -> int
 {
-   // auto words = std::vector<std::string>{}; // Vector de palabras inicialmente vacio.
+   auto words = std::vector<std::string>{}; // Vector de palabras inicialmente vacio.
    //auto words = Vector<std::string>{}; // Vector de palabras inicialmente vacio.
-   auto words = Vector<double>{};
+   // auto words = Vector<double>{};
+
+   // try {
+   //    words.push_back("Hello");
+   //    words.push_back("World");
+   //    words.at(2) = "!";
+   // } catch () {
+
+   // }
 
    auto wrd = std::string{};
 
    // Mientra que no se haga CTRL+Z o CTRL+D, introduce palabras.
    auto mssg = [] () {
-      std::print("Introduce una palabra: ");
+      std::print("Introduce una palabra (CTRL+Z Windows o CTRL+D UNIX): ");
       return true;
    };
 
@@ -84,11 +149,12 @@ auto main() -> int
    
    std::ranges::sort(words);
 
-   for (std::string  const& w : words)
-   // for (auto it = words.begin(); it != words.end(); ++it)
+
+   for (auto it = words.begin(); it != words.end(); ++it)
+   // for (std::string  const& w : words)
    {
-      std::println("{}", w);
-      // std::println("{}", *it);
+      // std::println("{}", w);
+      std::println("{}", *it);
    }
 
    return EXIT_SUCCESS;

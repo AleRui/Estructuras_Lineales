@@ -1,0 +1,25 @@
+# ninja log v5
+2	149	1737231165713841442	CMakeFiles/vector.dir/main.cpp.o.ddi	7ba34921c71f4bcf
+149	160	1737231165724841617	CMakeFiles/vector.dir/CXX.dd	58044f5aa13997ed
+149	160	1737231165724841617	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_11_ejemplo_vector/build/CMakeFiles/vector.dir/CXXModules.json	58044f5aa13997ed
+149	160	1737231165724841617	CMakeFiles/vector.dir/main.cpp.o.modmap	58044f5aa13997ed
+160	2667	1737231168229881406	CMakeFiles/vector.dir/main.cpp.o	eb808e3c4580b3c6
+2667	2772	1737231168335883090	debug/vector	f69a4cdf8526e075
+2	242	1737284754700742971	CMakeFiles/vector.dir/main.cpp.o.ddi	7ba34921c71f4bcf
+243	255	1737284754712743001	CMakeFiles/vector.dir/CXX.dd	58044f5aa13997ed
+243	255	1737284754712743001	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_11_ejemplo_vector/build/CMakeFiles/vector.dir/CXXModules.json	58044f5aa13997ed
+243	255	1737284754712743001	CMakeFiles/vector.dir/main.cpp.o.modmap	58044f5aa13997ed
+256	2924	1737284757379749464	CMakeFiles/vector.dir/main.cpp.o	eb808e3c4580b3c6
+2924	3039	1737284757496749743	debug/vector	f69a4cdf8526e075
+1	167	1737285014975953144	CMakeFiles/vector.dir/main.cpp.o.ddi	7ba34921c71f4bcf
+167	188	1737285014998952972	CMakeFiles/vector.dir/CXX.dd	58044f5aa13997ed
+167	188	1737285014998952972	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_11_ejemplo_vector/build/CMakeFiles/vector.dir/CXXModules.json	58044f5aa13997ed
+167	188	1737285014998952972	CMakeFiles/vector.dir/main.cpp.o.modmap	58044f5aa13997ed
+189	2724	1737285017532934154	CMakeFiles/vector.dir/main.cpp.o	eb808e3c4580b3c6
+2724	2832	1737285017640933356	debug/vector	f69a4cdf8526e075
+2	195	1737285128439154727	CMakeFiles/vector.dir/main.cpp.o.ddi	7ba34921c71f4bcf
+195	211	1737285128454155501	CMakeFiles/vector.dir/CXX.dd	58044f5aa13997ed
+195	211	1737285128454155501	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_11_ejemplo_vector/build/CMakeFiles/vector.dir/CXXModules.json	58044f5aa13997ed
+195	211	1737285128454155501	CMakeFiles/vector.dir/main.cpp.o.modmap	58044f5aa13997ed
+212	2690	1737285130933282400	CMakeFiles/vector.dir/main.cpp.o	eb808e3c4580b3c6
+2690	2794	1737285131038287730	debug/vector	f69a4cdf8526e075

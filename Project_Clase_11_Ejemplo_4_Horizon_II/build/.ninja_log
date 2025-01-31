@@ -1,0 +1,7 @@
+# ninja log v5
+2	184	1737313461413942200	CMakeFiles/horizon.dir/main.cpp.o.ddi	7d382d26d5517dd6
+185	196	1737313461425942428	CMakeFiles/horizon.dir/CXX.dd	f820ec7b25f44201
+185	196	1737313461425942428	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_11_Ejemplo_4_Horizon_II/build/CMakeFiles/horizon.dir/CXXModules.json	f820ec7b25f44201
+185	196	1737313461425942428	CMakeFiles/horizon.dir/main.cpp.o.modmap	f820ec7b25f44201
+196	2879	1737313464106993469	CMakeFiles/horizon.dir/main.cpp.o	4713c98df32e2fdb
+2879	2995	1737313464220995640	debug/horizon	4789734a028efbe5

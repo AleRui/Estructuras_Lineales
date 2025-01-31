@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_extra_opcional/build/CMakeFiles/roland_garros.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_extra_opcional/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_extra_opcional/build/CMakeFiles/rebuild_cache.dir

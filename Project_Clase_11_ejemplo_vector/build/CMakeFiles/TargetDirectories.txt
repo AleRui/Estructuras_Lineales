@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_11_ejemplo_vector/build/CMakeFiles/vector.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_11_ejemplo_vector/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_11_ejemplo_vector/build/CMakeFiles/rebuild_cache.dir

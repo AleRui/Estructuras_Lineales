@@ -1,0 +1,7 @@
+# ninja log v5
+449	6715	1737582344634204626	CMakeFiles/roland_garros.dir/main.cpp.o	8512e725f275ff8f
+437	449	1737582338376135114	CMakeFiles/roland_garros.dir/main.cpp.o.modmap	6d82e775e0f22ff3
+437	449	1737582338376135114	/home/alejandro/Proyectos/Estructuras_Lineales/Actividad_individual_extra_opcional/build/CMakeFiles/roland_garros.dir/CXXModules.json	6d82e775e0f22ff3
+6715	6862	1737582344787206330	debug/roland_garros	43ff95c6f2843327
+437	449	1737582338376135114	CMakeFiles/roland_garros.dir/CXX.dd	6d82e775e0f22ff3
+2	436	1737582338361134948	CMakeFiles/roland_garros.dir/main.cpp.o.ddi	9ec5e5401609ffc3
