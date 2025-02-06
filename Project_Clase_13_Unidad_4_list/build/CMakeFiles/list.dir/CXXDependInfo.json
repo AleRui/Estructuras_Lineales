@@ -1,0 +1,18 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_13_Unidad_4_list/build",
+	"dir-cur-src" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_13_Unidad_4_list",
+	"dir-top-bld" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_13_Unidad_4_list/build",
+	"dir-top-src" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_13_Unidad_4_list",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_13_Unidad_4_list/build/CMakeFiles/list.dir"
+}

@@ -1,0 +1,3 @@
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_13_Unidad_4_list/build/CMakeFiles/list.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_13_Unidad_4_list/build/CMakeFiles/edit_cache.dir
+/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_13_Unidad_4_list/build/CMakeFiles/rebuild_cache.dir

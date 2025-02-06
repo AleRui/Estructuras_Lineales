@@ -1,0 +1,7 @@
+# ninja log v5
+1	182	1738522856558343104	CMakeFiles/list.dir/main.cpp.o.ddi	c3c3417738ab440
+183	194	1738522856569343251	CMakeFiles/list.dir/CXX.dd	d1f004b00c55c677
+183	194	1738522856569343251	/home/alejandro/Proyectos/Estructuras_Lineales/Project_Clase_13_Unidad_4_list/build/CMakeFiles/list.dir/CXXModules.json	d1f004b00c55c677
+194	2045	1738522858420367915	CMakeFiles/list.dir/main.cpp.o	89402b1eed2cdc74
+183	194	1738522856569343251	CMakeFiles/list.dir/main.cpp.o.modmap	d1f004b00c55c677
+2045	2138	1738522858514369166	debug/list	3f4832215738a747
